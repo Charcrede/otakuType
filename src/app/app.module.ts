@@ -7,6 +7,7 @@ import { CitationsComponent } from './citations/citations.component';
 import { SynopsisComponent } from './synopsis/synopsis.component';
 import { PlaySynopComponent } from './play-synop/play-synop.component';
 import { PlayCitComponent } from './play-cit/play-cit.component';
+import { RoutingModuleModule } from './routing-module/routing-module.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PlayCitComponent } from './play-cit/play-cit.component';
     PlayCitComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RoutingModuleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

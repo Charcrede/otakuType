@@ -1,0 +1,33 @@
+.wrapper{
+    background: url(../assets/OtakuType.png) no-repeat fixed center /cover;
+    min-height: 100vh;
+}
+header nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header nav ul{
+    display: flex;
+    gap: 1rem;
+    flex-flow: row wrap;
+    background-color: #fff;
+    padding-inline:10px !important;
+    border-radius: 50px;
+    padding: 1px;
+}
+a{
+    text-decoration: none;
+    color:#1f4173;
+    font-weight: bold;
+    display: block;
+}
+.logo{
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 2rem;
+}
+header{
+    padding-inline: 10rem;
+    padding-block:5rem;
+}

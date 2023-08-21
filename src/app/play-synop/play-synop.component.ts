@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TypeServiceService } from '../type-service.service';
 
 @Component({
   selector: 'app-play-synop',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./play-synop.component.css']
 })
 export class PlaySynopComponent {
-
+  constructor(public service: TypeServiceService){};
+  
+  // letters: string[] = this.service.selectedSynopsis.texte?.split(" ");
 }
