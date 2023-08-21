@@ -1,1 +1,19 @@
-<p>play-synop works!</p>
+<div *ngIf="service.selectedSynopsis">
+    <div class="titre_nom">
+        <span>Synopis #1</span>
+        <span>{{service.selectedSynopsis.anime}}</span>
+    </div>
+    <div class="texte">
+        <img src="{{service.selectedSynopsis.url}}" alt="">
+        <div *ngFor=" let word of service.words" class="mot">
+            <!-- <div>{{word}}</div> -->
+            <span *ngFor="let letter of word" class="lettre"> {{letter}}</span>
+            <span>&nbsp;</span>
+        </div>
+    </div>
+    <div class="score">
+        <span>00 MPM</span>
+        <span>00 %</span>
+        <span>00 : 00</span>
+    </div>
+</div>
