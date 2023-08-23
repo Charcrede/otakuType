@@ -30,13 +30,6 @@ export class PlaySynopComponent implements OnInit {
     }, 100);
   }
   @ViewChild('texte') texte !: ElementRef;
- 
-    scrollToBottom() {
-        const container = this.texte.nativeElement;
-        container.scrollTop+=10;
-        console.log(container.scrollTop);
-        console.log(container.scrollHeight);
-    }
     typing() {
       const container = this.texte.nativeElement;
       this.textInput = document.getElementById("input");
@@ -62,14 +55,15 @@ export class PlaySynopComponent implements OnInit {
           }
           this.i++;
           this.u++;
-        }
-        if (this.spans[this.i].offsetTop+this.spans[this.i].offsetHeight > container.offsetHeight) {
-          container.scrollTop = this.spans[this.i].offsetHeight;
-          console.log(container.scrollTop + "scroll top");
-          console.log(this.spans[this.i].offsetTop + "offset top");
           
         }
+        if ((this.spans[this.i].offsetTop+this.spans[this.i].offsetHeight > container.offsetHeight) && this.spans[this.i].offsetTop > this.spans[this.i-1].offsetTop) {
+          container.scrollTop = container.scrollTop+this.spans[this.i].offsetHeight*2;
+        }
         this.spans[this.u].classList.add("current");
+        console.log(container.scrollTop + " container scroll top");
+        console.log(this.spans[this.i].offsetTop + " span offset top");
+        console.log(container.scrollTop+this.spans[this.i].offsetHeight);
       }
       else if (e.inputType === 'deleteContentBackward') {
         if (this.i > 0 && this.u > 0) {
@@ -84,10 +78,4 @@ export class PlaySynopComponent implements OnInit {
       this.subscription.unsubscribe();
     })
   }
-  // delete() {
-    typingTry(){
-      
-    }
-  // }
-  // letters: string[] = this.service.selectedSynopsis.texte?.split(" ");
 }
