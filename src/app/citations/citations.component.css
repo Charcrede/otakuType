@@ -17,12 +17,14 @@
     background-color: rgba(255, 255, 255, 0.5);
 }
 h1{
-    color:#1f4173;
+    color:#0732a3;
     background-color: #fff;
     /* display: inline-block; */
     text-align: center;
     margin-inline: auto;
     margin-block: 3rem;
+    width: fit-content;
+    padding: .5rem 1rem;
 }
 figure{
     padding: 0;
@@ -36,6 +38,9 @@ figure{
     overflow:hidden;
 }
 figcaption{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     border: 1px solid #fff;
     text-align: center;
@@ -51,4 +56,8 @@ figcaption{
 .figcaption{
     color: #fff;
     text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
 }
+
+

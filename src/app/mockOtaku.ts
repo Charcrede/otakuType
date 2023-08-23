@@ -257,7 +257,7 @@ export const CITATIONS: Citations[] = [
     "id" : "37",
         "persoName" : "Gilgamesh",
         "animeName" : "Fate / Stay Night",
-        "url" : "assets/citations/img/39.jpg", 
+        "url" : "assets/citations/img/39.png", 
         "text" : "Il y a des choses qui sont belles simplement parce que vous ne pouvez pas les avoir. Une phrase qui indique clairement qu'il veut exprimer le bonheur de l'un des serviteurs dans Fate / Stay Night"
     },
     {
@@ -278,7 +278,7 @@ export const CITATIONS: Citations[] = [
     "id" : "40",
         "persoName" : "Celty",
         "animeName" : "Durarara !!",
-        "url" : "assets/citations/img/42.png", 
+        "url" : "assets/citations/img/42.jpg", 
         "text" : "Le monde n'est pas aussi mauvais que vous le pensez. Des mots qui disent l'héroïne principale de «Durarara !!», alors qu'elle n'est précisément pas la plus normale."
     },
     {
@@ -292,14 +292,14 @@ export const CITATIONS: Citations[] = [
     "id" : "42",
         "persoName" : "Rin Okumura",
         "animeName" : "Ao no Exorcist",
-        "url" : "assets/citations/img/44.jpg", 
+        "url" : "assets/citations/img/44.png", 
         "text" : "Même si vous vous écartez du droit chemin, ne déviez jamais de ce que votre coeur a décidé. Le personnage principal de Ao no Exorcist pense qu'il est important que les décisions que chacun prend soient suivies jusqu'à la fin."
     },
     {
     "id" : "43",
         "persoName" : "Leenale",
         "animeName" : "D. Gray-man",
-        "url" : "assets/citations/img/45.png", 
+        "url" : "assets/citations/img/45.jpg", 
         "text" : "Les blessures seront guéries tant que nous serons encore en vie. Ou avec le temps, une autre façon d'interpréter cette phrase de l'un des protagonistes de D. Gray-man"
     },
     {
@@ -313,14 +313,14 @@ export const CITATIONS: Citations[] = [
     "id" : "45",
         "persoName" : "Minorin",
         "animeName" : "Toradora",
-        "url" : "assets/citations/img/47.jpg", 
+        "url" : "assets/citations/img/47.png", 
         "text" : "IL'amour est comme croire aux OVNIS, vous ne les avez jamais vus mais vous ne perdez pas espoir de les voir. L'amour n'est pas facile, mais vous ne devez jamais abandonner . Une phrase d'encouragement de l'un des protagonistes de Toradora!"
     },
     {
     "id" : "46",
         "persoName" : "Meliodas",
         "animeName" : "Nanatsu no Taizai",
-        "url" : "assets/citations/img/48.png", 
+        "url" : "assets/citations/img/48.jpg", 
         "text" : "L'important n'est pas ce que les autres pensent de vous, mais ce que vous ressentez pour eux. Une phrase que nous pouvons trouver dans l'anime Nanatsu no Taizai, à propos de l'opinion sociale."
     },
     {
@@ -341,7 +341,7 @@ export const CITATIONS: Citations[] = [
     "id" : "49",
         "persoName" : "Taki Tachibani",
         "animeName" : "Empty",
-        "url" : "assets/citations/img/51.jpg", 
+        "url" : "assets/citations/img/51.png", 
         "text" : "Les chaînes représentent le flux lui-même. Les cordes se tordent, vacillent, se défont, se reconnectent. C'est l'heure."
     },
 ];

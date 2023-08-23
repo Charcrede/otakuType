@@ -121,7 +121,7 @@ img{
 }
 .texte{
     background: rgba(255, 255, 255, .5);
-    color: #1f4173;
+    color: #0732a3;
     position: relative;
     width: 50%;
     margin-inline: auto;
@@ -151,7 +151,7 @@ span.lettre{
     gap: 1rem;
 }
 .scoreSuivant{
-    background-color: #2e74bb;
+    background-color: #0732a3;
     margin-inline: auto;
     display: flex;
     width: 50%;
@@ -160,7 +160,7 @@ span.lettre{
     padding-inline:1rem;
 }
 .suivant{
-    color: #2e74bb;
+    color: #0732a3;
     background-color: #fff;
     border: 1px solid #fff;
     padding: .1rem .7rem;
