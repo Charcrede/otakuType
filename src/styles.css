@@ -12,13 +12,14 @@ img{
 .texte{
     background: rgba(255, 255, 255, .5);
     color: #1f4173;
-    position: relative;
     width: 50%;
+    position: relative;
     margin-inline: auto;
     height: 500px;
     overflow: scroll;
     border: 1px solid #fff;
     padding-inline:1rem;
+    scroll-behavior: smooth;
 }
 .texte::-webkit-scrollbar{
     display: none;
@@ -97,4 +98,7 @@ span.lettre{
     right: 0;
     left: 0;
     opacity: 0;
+}
+.mot:last-of-type>.lettre:last-of-type{
+    display: none;
 }
