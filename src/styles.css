@@ -122,9 +122,7 @@ img{
 .texte{
     background: rgba(255, 255, 255, .5);
     color: #0732a3;
-    position: relative;
     width: 50%;
-    position: relative;
     margin-inline: auto;
     height: 500px;
     overflow: scroll;
@@ -169,6 +167,8 @@ span.lettre{
     font-weight: 600;
     font-size: 1.5rem;
     border-radius: 50px;
+    position: relative;
+    z-index: 254;
 }
 .titre_nom{
     width: 60%;
@@ -212,4 +212,7 @@ span.lettre{
 }
 .mot:last-of-type>.lettre:last-of-type{
     display: none;
+}
+.relative{
+    position: relative;
 }

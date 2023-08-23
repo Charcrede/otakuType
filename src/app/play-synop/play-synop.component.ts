@@ -57,13 +57,10 @@ export class PlaySynopComponent implements OnInit {
           this.u++;
           
         }
-        if ((this.spans[this.i].offsetTop+this.spans[this.i].offsetHeight > container.offsetHeight) && this.spans[this.i].offsetTop > this.spans[this.i-1].offsetTop) {
-          container.scrollTop = container.scrollTop+this.spans[this.i].offsetHeight*2;
+        if ((this.spans[this.i].offsetTop+((this.spans[this.i].offsetHeight*2)) > container.offsetHeight) && this.spans[this.i].offsetTop > this.spans[this.i-1].offsetTop) {
+          container.scrollTop = container.scrollTop+this.spans[this.i].offsetHeight+25.75;
         }
         this.spans[this.u].classList.add("current");
-        console.log(container.scrollTop + " container scroll top");
-        console.log(this.spans[this.i].offsetTop + " span offset top");
-        console.log(container.scrollTop+this.spans[this.i].offsetHeight);
       }
       else if (e.inputType === 'deleteContentBackward') {
         if (this.i > 0 && this.u > 0) {

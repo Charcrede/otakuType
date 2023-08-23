@@ -3,24 +3,26 @@
         <span class="id">{{service.selectedSynopsis.id}}</span>
         <span class="nom">{{service.selectedSynopsis.anime}}</span>
     </div>
-    <div class="texte"
-        style="background:linear-gradient(to bottom right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),url('{{service.selectedSynopsis.url}}')repeat fixed center;" #texte>
-        <!-- <img src="{{service.selectedSynopsis.url}}" alt=""> -->
-        <div *ngFor=" let word of service.words" class="mot">
-            <!-- <div>{{word}}</div> -->
-            <span *ngFor="let letter of word" class="lettre">{{letter}}</span>
-            <span class="lettre">&nbsp;</span>
+    <div class="relative">
+        <div class="texte"
+            style="background:linear-gradient(to bottom right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),url('{{service.selectedSynopsis.url}}')repeat fixed center;" #texte>
+            <!-- <img src="{{service.selectedSynopsis.url}}" alt=""> -->
+            <div *ngFor=" let word of service.words" class="mot">
+                <!-- <div>{{word}}</div> -->
+                <span *ngFor="let letter of word" class="lettre">{{letter}}</span>
+                <span class="lettre">&nbsp;</span>
+            </div>
+                <input type="text" autofocus class="input" (input)="typing()" id="input" [(ngModel)]="entered" name="entered" autocomplete="off" autocapitalize="off" autocorrect="off">
         </div>
-            <input type="text" autofocus class="input" (input)="typing()" id="input" [(ngModel)]="entered" name="entered">
-    </div>
-    <div class="scoreSuivant">
-        <div class="score">
-            <span>00MPM</span>
-            <span>00%</span>
-            <span>00:00</span>
-        </div>
-        <div>
-            <button class="suivant">Suivant</button>
+        <div class="scoreSuivant">
+            <div class="score">
+                <span>00MPM</span>
+                <span>00%</span>
+                <span>00:00</span>
+            </div>
+            <div>
+                <button class="suivant">Suivant</button>
+            </div>
         </div>
     </div>
 </div>
