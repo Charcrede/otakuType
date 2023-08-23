@@ -121,12 +121,8 @@ img{
 }
 .texte{
     background: rgba(255, 255, 255, .5);
-<<<<<<< HEAD
-    color: #1f4173;
-=======
     color: #0732a3;
     position: relative;
->>>>>>> 97840a19ba134e033e952ae6f7348ffa28ca854f
     width: 50%;
     position: relative;
     margin-inline: auto;
