@@ -1,1 +1,10 @@
-<p>synopsis works!</p>
+
+    <h1>TESTEZ VOTRE VITESSE AVEC CES SYNOPSIS</h1>
+<div class="lesSynopsis">
+    <figure *ngFor="let syn of synopsis">
+        <div class="image"><img src="{{syn.url}}"></div>
+        <figcaption>
+            <button class="btn figcaption" (click)="this.service.getSynopsis(syn)" routerLink="/synopsis-play">{{syn.anime}}</button>
+        </figcaption>
+    </figure>
+</div>

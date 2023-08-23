@@ -1,0 +1,210 @@
+/* Font face */
+
+/* 
+    fontface Google Sans
+     */
+     @font-face {
+        font-family: "ProductSans";
+        src: url("./assets/Google-sans/ProductSans-Thin.ttf") format("truetype");
+        font-style: normal;
+        font-weight: 100;
+    }
+    
+    @font-face {
+        font-family: "ProductSans";
+        src: url("./assets/Google-sans/ProductSans-ThinItalic.ttf") format("truetype");
+        font-style: italic;
+        font-weight: 100;
+    }
+    
+    
+    @font-face {
+        font-family: "ProductSans";
+        src: url("./assets/Google-sans/ProductSans-Light.ttf") format("truetype");
+        font-style: normal;
+        font-weight: 300;
+    }
+    
+    @font-face {
+        font-family: "ProductSans";
+        src: url("./assets/Google-sans/ProductSans-LightItalic.ttf") format("truetype");
+        font-style: italic;
+        font-weight: 300;
+    }
+    
+    @font-face {
+        font-family: "ProductSans";
+        src: url("./assets/Google-sans/ProductSans-Regular.ttf") format("truetype");
+        font-style: normal;
+        font-weight: 400;
+    }
+    
+    @font-face {
+        font-family: "ProductSans";
+        src: url("./assets/Google-sans/ProductSans-Medium.ttf") format("truetype");
+        font-style: normal;
+        font-weight: 500;
+    }
+    
+    @font-face {
+        font-family: "ProductSans";
+        src: url("./assets/Google-sans/ProductSans-MediumItalic.ttf") format("truetype");
+        font-style: italic;
+        font-weight: 500;
+    }
+    
+    
+    @font-face {
+        font-family: "ProductSans";
+        src: url("./assets/Google-sans/ProductSans-Bold.ttf") format("truetype");
+        font-style: normal;
+        font-weight: 700;
+    }
+    
+    @font-face {
+        font-family: "ProductSans";
+        src: url("./assets/Google-sans/ProductSans-BoldItalic.ttf") format("truetype");
+        font-style: italic;
+        font-weight: 700;
+    }
+    
+    @font-face {
+        font-family: "ProductSans";
+        src: url("./assets/Google-sans/ProductSans-Black.ttf") format("truetype");
+        font-style: normal;
+        font-weight: 900;
+    }
+    
+    @font-face {
+        font-family: "ProductSans";
+        src: url("./assets/Google-sans/ProductSans-BlackItalic.ttf") format("truetype");
+        font-style: italic;
+        font-weight: 900;
+    }
+    @font-face {
+        font-family: "Bebas";
+        src: url("./assets/bebas_neue/BebasNeue-Regular.woff2") format("woff2");
+        font-style: italic;
+        font-weight: 900;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body.body{
+    font-family: ProductSans;
+}
+
+
+img{
+    width: 100%;
+}
+.wrapper{
+    color: #fff;
+}
+.mot{
+    display: inline-block;
+    font-size: 3rem;
+    font-weight: 500;
+}
+.texte{
+    background: rgba(255, 255, 255, .5);
+    color: #0732a3;
+    position: relative;
+    width: 50%;
+    margin-inline: auto;
+    height: 500px;
+    overflow: scroll;
+    border: 1px solid #fff;
+    padding-inline:1rem;
+}
+.texte::-webkit-scrollbar{
+    display: none;
+}
+span.lettre{
+    text-align: center;
+    /* padding: .5rem .2rem; */
+    outline: 1px solid #0100282d;
+    border-radius: 5px;
+    vertical-align: middle;
+    /* margin-block: .5rem;  */
+    height: 40px;
+    font-size: 3rem;
+    backdrop-filter: blur(.5);
+}
+.score{
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    display: flex;
+    gap: 1rem;
+}
+.scoreSuivant{
+    background-color: #0732a3;
+    margin-inline: auto;
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline:1rem;
+}
+.suivant{
+    color: #0732a3;
+    background-color: #fff;
+    border: 1px solid #fff;
+    padding: .1rem .7rem;
+    font-weight: 600;
+    font-size: 1.5rem;
+    border-radius: 50px;
+}
+.titre_nom{
+    width: 60%;
+    margin-inline: auto;
+    margin-block: 1rem;
+    font-size: 1.5rem;
+}
+.id{
+    background-color: #fff;
+    border: 1px solid #fff;
+    color: #1f4173;
+    margin-right: 10px;
+}
+.nom{
+    border: 1px solid rgba(255, 255, 255, 0.253);
+    font-weight: 600;
+    padding-inline: 10px;
+}
+.lose{
+    color: #fff;
+    background-color: #751f4bbf;
+}
+.success{
+    color: #fff;
+    background-color: #1f4175bf;
+}
+.retry.success{
+    color: #fff;
+    background-color: #e3af04bf;
+}
+.current{
+    border-bottom:2px solid #1f4175;
+}
+#input{
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    opacity: 0;
+}

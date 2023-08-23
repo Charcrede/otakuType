@@ -1,1 +1,9 @@
-<p>citations works!</p>
+<h1>TESTEZ VOTRE VITESSE AVEC CES CITATIONS</h1>
+<div class="lesSynopsis">
+    <figure *ngFor="let citation of citations">
+        <div class="image" style="background-image: url({{citation.url}}); background-position: center; background-size: cover; background-repeat: no-repeat;"></div>
+        <figcaption>
+            <button class="btn figcaption" (click)="this.service.getCitations(citation)" routerLink="/citation-play">{{citation.animeName}}</button>
+        </figcaption>
+    </figure>
+</div>

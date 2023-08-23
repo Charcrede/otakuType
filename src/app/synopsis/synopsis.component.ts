@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { SYNOPSIS } from '../mockOtaku_second';
+import { Synopsis } from '../otaku';
+import { TypeServiceService } from '../type-service.service';
 
 @Component({
   selector: 'app-synopsis',
@@ -6,5 +9,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./synopsis.component.css']
 })
 export class SynopsisComponent {
-
+  constructor(public service: TypeServiceService){};
+  synopsis: Synopsis[] = SYNOPSIS;
 }
