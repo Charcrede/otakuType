@@ -17,12 +17,14 @@
     background-color: rgba(255, 255, 255, 0.5);
 }
 h1{
-    color:#1f4173;
+    color:#0732a3;
     background-color: #fff;
     /* display: inline-block; */
     text-align: center;
     margin-inline: auto;
     margin-block: 3rem;
+    width: fit-content;
+    padding: .5rem 1rem;
 }
 figure{
     padding: 0;

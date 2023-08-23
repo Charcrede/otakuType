@@ -1,5 +1,5 @@
 .wrapper{
-    background: url(../assets/OtakuType.png) no-repeat fixed center /cover;
+    background: url(../assets/bgc.jpg) no-repeat fixed center /cover;
     min-height: 100vh;
 }
 header nav{
@@ -13,15 +13,19 @@ header nav ul{
     flex-flow: row wrap;
     background-color: #fff;
     padding-inline:10px !important;
-    border-radius: 50px;
+    /* border-radius: 50px; */
     padding: 1px;
 }
 a{
+    display: block;
     text-decoration: none;
-    color:#1f4173;
+    color:#0732a3;
     font-weight: bold;
     display: block;
+    font-size: 1.4rem;
 }
+
+
 .logo{
     color: #fff;
     text-transform: uppercase;
@@ -31,3 +35,8 @@ header{
     padding-inline: 10rem;
     padding-block:5rem;
 }
+
+/* div.flag {
+    background-image: url("../assets/Sanstitre1.png");
+    z-index: 25;
+} */

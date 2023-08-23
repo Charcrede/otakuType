@@ -34,7 +34,6 @@ const typeRoute: Routes = [
 ]
 
 
-
 @NgModule({
   declarations: [],
   imports: [

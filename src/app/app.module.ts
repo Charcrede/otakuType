@@ -9,6 +9,7 @@ import { SynopsisComponent } from './synopsis/synopsis.component';
 import { PlaySynopComponent } from './play-synop/play-synop.component';
 import { PlayCitComponent } from './play-cit/play-cit.component';
 import { RoutingModuleModule } from './routing-module/routing-module.module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { RoutingModuleModule } from './routing-module/routing-module.module';
     CitationsComponent,
     SynopsisComponent,
     PlaySynopComponent,
-    PlayCitComponent
+    PlayCitComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

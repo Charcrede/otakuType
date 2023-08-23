@@ -1,3 +1,113 @@
+/* Font face */
+
+/* 
+    fontface Google Sans
+     */
+     @font-face {
+        font-family: "ProductSans";
+        src: url("./assets/Google-sans/ProductSans-Thin.ttf") format("truetype");
+        font-style: normal;
+        font-weight: 100;
+    }
+    
+    @font-face {
+        font-family: "ProductSans";
+        src: url("./assets/Google-sans/ProductSans-ThinItalic.ttf") format("truetype");
+        font-style: italic;
+        font-weight: 100;
+    }
+    
+    
+    @font-face {
+        font-family: "ProductSans";
+        src: url("./assets/Google-sans/ProductSans-Light.ttf") format("truetype");
+        font-style: normal;
+        font-weight: 300;
+    }
+    
+    @font-face {
+        font-family: "ProductSans";
+        src: url("./assets/Google-sans/ProductSans-LightItalic.ttf") format("truetype");
+        font-style: italic;
+        font-weight: 300;
+    }
+    
+    @font-face {
+        font-family: "ProductSans";
+        src: url("./assets/Google-sans/ProductSans-Regular.ttf") format("truetype");
+        font-style: normal;
+        font-weight: 400;
+    }
+    
+    @font-face {
+        font-family: "ProductSans";
+        src: url("./assets/Google-sans/ProductSans-Medium.ttf") format("truetype");
+        font-style: normal;
+        font-weight: 500;
+    }
+    
+    @font-face {
+        font-family: "ProductSans";
+        src: url("./assets/Google-sans/ProductSans-MediumItalic.ttf") format("truetype");
+        font-style: italic;
+        font-weight: 500;
+    }
+    
+    
+    @font-face {
+        font-family: "ProductSans";
+        src: url("./assets/Google-sans/ProductSans-Bold.ttf") format("truetype");
+        font-style: normal;
+        font-weight: 700;
+    }
+    
+    @font-face {
+        font-family: "ProductSans";
+        src: url("./assets/Google-sans/ProductSans-BoldItalic.ttf") format("truetype");
+        font-style: italic;
+        font-weight: 700;
+    }
+    
+    @font-face {
+        font-family: "ProductSans";
+        src: url("./assets/Google-sans/ProductSans-Black.ttf") format("truetype");
+        font-style: normal;
+        font-weight: 900;
+    }
+    
+    @font-face {
+        font-family: "ProductSans";
+        src: url("./assets/Google-sans/ProductSans-BlackItalic.ttf") format("truetype");
+        font-style: italic;
+        font-weight: 900;
+    }
+    @font-face {
+        font-family: "Bebas";
+        src: url("./assets/bebas_neue/BebasNeue-Regular.woff2") format("woff2");
+        font-style: italic;
+        font-weight: 900;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body.body{
+    font-family: ProductSans;
+}
+
+
 img{
     width: 100%;
 }
@@ -11,7 +121,12 @@ img{
 }
 .texte{
     background: rgba(255, 255, 255, .5);
+<<<<<<< HEAD
     color: #1f4173;
+=======
+    color: #0732a3;
+    position: relative;
+>>>>>>> 97840a19ba134e033e952ae6f7348ffa28ca854f
     width: 50%;
     position: relative;
     margin-inline: auto;
@@ -42,7 +157,7 @@ span.lettre{
     gap: 1rem;
 }
 .scoreSuivant{
-    background-color: #2e74bb;
+    background-color: #0732a3;
     margin-inline: auto;
     display: flex;
     width: 50%;
@@ -51,7 +166,7 @@ span.lettre{
     padding-inline:1rem;
 }
 .suivant{
-    color: #2e74bb;
+    color: #0732a3;
     background-color: #fff;
     border: 1px solid #fff;
     padding: .1rem .7rem;
