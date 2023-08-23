@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TypeServiceService } from '../type-service.service';
 
 @Component({
   selector: 'app-play-cit',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./play-cit.component.css']
 })
 export class PlayCitComponent {
-
+  constructor(
+   
+  ){}
 }

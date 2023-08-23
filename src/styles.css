@@ -1,3 +1,113 @@
+/* Font face */
+
+/* 
+    fontface Google Sans
+     */
+     @font-face {
+        font-family: "ProductSans";
+        src: url("./assets/Google-sans/ProductSans-Thin.ttf") format("truetype");
+        font-style: normal;
+        font-weight: 100;
+    }
+    
+    @font-face {
+        font-family: "ProductSans";
+        src: url("./assets/Google-sans/ProductSans-ThinItalic.ttf") format("truetype");
+        font-style: italic;
+        font-weight: 100;
+    }
+    
+    
+    @font-face {
+        font-family: "ProductSans";
+        src: url("./assets/Google-sans/ProductSans-Light.ttf") format("truetype");
+        font-style: normal;
+        font-weight: 300;
+    }
+    
+    @font-face {
+        font-family: "ProductSans";
+        src: url("./assets/Google-sans/ProductSans-LightItalic.ttf") format("truetype");
+        font-style: italic;
+        font-weight: 300;
+    }
+    
+    @font-face {
+        font-family: "ProductSans";
+        src: url("./assets/Google-sans/ProductSans-Regular.ttf") format("truetype");
+        font-style: normal;
+        font-weight: 400;
+    }
+    
+    @font-face {
+        font-family: "ProductSans";
+        src: url("./assets/Google-sans/ProductSans-Medium.ttf") format("truetype");
+        font-style: normal;
+        font-weight: 500;
+    }
+    
+    @font-face {
+        font-family: "ProductSans";
+        src: url("./assets/Google-sans/ProductSans-MediumItalic.ttf") format("truetype");
+        font-style: italic;
+        font-weight: 500;
+    }
+    
+    
+    @font-face {
+        font-family: "ProductSans";
+        src: url("./assets/Google-sans/ProductSans-Bold.ttf") format("truetype");
+        font-style: normal;
+        font-weight: 700;
+    }
+    
+    @font-face {
+        font-family: "ProductSans";
+        src: url("./assets/Google-sans/ProductSans-BoldItalic.ttf") format("truetype");
+        font-style: italic;
+        font-weight: 700;
+    }
+    
+    @font-face {
+        font-family: "ProductSans";
+        src: url("./assets/Google-sans/ProductSans-Black.ttf") format("truetype");
+        font-style: normal;
+        font-weight: 900;
+    }
+    
+    @font-face {
+        font-family: "ProductSans";
+        src: url("./assets/Google-sans/ProductSans-BlackItalic.ttf") format("truetype");
+        font-style: italic;
+        font-weight: 900;
+    }
+    @font-face {
+        font-family: "Bebas";
+        src: url("./assets/bebas_neue/BebasNeue-Regular.woff2") format("woff2");
+        font-style: italic;
+        font-weight: 900;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body.body{
+    font-family: ProductSans;
+}
+
+
 img{
     width: 100%;
 }

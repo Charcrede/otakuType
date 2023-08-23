@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { SYNOPSIS } from './mockOtaku_second';
-import { Synopsis } from './otaku';
+import { Citations, Synopsis } from './otaku';
+import { CITATIONS } from "./mockOtaku";
 
 @Injectable({
   providedIn: 'root'
@@ -9,10 +10,14 @@ export class TypeServiceService {
 
   constructor() { }
   Synopsys: Synopsis[] = SYNOPSIS;
-  selectedSynopsis!:Synopsis;
+  Citations : Citations[] = CITATIONS;
+  selectedSynopsis!: Synopsis;
+  selectedCitation!: Citations;
   words!: string[][];
+  wordCitation!: string[][];
   image!: string;
-  getSynopsis(synop: Synopsis){
+  imageCitation!: string;
+  getSynopsis(synop: Synopsis) {
     this.selectedSynopsis = synop;
     let tab1 = this.selectedSynopsis.texte.split(" ");
     let tab2 = [];
@@ -22,5 +27,18 @@ export class TypeServiceService {
     this.words = tab2;
     this.image = this.selectedSynopsis.url;
   }
+  getCitations(citation: Citations){
+    this.selectedCitation = citation;
+    let tab3 = this.selectedCitation.text.split(" ");
+    let tab4 = [];
+    for (let i = 0; i < tab3.length; i++) {
+      tab4.push(tab3[i].split(""));
+    }
+    this.wordCitation = tab4;
+    this.imageCitation = this.selectedCitation.url;
+  }
+
+
+
 
 }

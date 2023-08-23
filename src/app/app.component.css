@@ -1,5 +1,5 @@
 .wrapper{
-    background: url(../assets/OtakuType.png) no-repeat fixed center /cover;
+    background: url(../assets/02.jpg) no-repeat fixed center /cover;
     min-height: 100vh;
 }
 header nav{
@@ -21,6 +21,7 @@ a{
     color:#1f4173;
     font-weight: bold;
     display: block;
+    font-size: 1.4rem;
 }
 .logo{
     color: #fff;
