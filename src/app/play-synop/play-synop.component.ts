@@ -37,72 +37,86 @@ export class PlaySynopComponent implements OnInit {
   }
   @ViewChild('texte') texte !: ElementRef;
   typing() {
-    this.typeCount++
-    if (this.typeCount === 2) {
-      this.timing();
-    }
-    const container = this.texte.nativeElement;
-    this.textInput = document.getElementById("input");
-    if (this.textInput && this.selectedSynopsis) {
-      this.userKeydown = fromEvent<InputEvent>(this.textInput, 'input');
-      this.sentence = this.selectedSynopsis.texte.split("");
-    }
-    this.subscription = this.userKeydown.subscribe((e) => {
-      let newTabSentence = this.entered.split("");
-      if (e.inputType === 'insertText') {
-        if (this.i <= this.sentence.length) {
-          if (this.sentence[this.i] === newTabSentence[this.i]) {
-            this.spans[this.i].classList.add("success")
-            this.spans[this.i].classList.remove("lose")
-          } else {
-            this.spans[this.i].classList.add("lose", "retry")
-            this.spans[this.i].classList.remove("success")
-            this.errorsCount++;
-          }
+    if (this.i < this.selectedSynopsis.texte.split("").length-1) {
+      const container = this.texte.nativeElement;
+      this.textInput = document.getElementById("input");
+      if (this.textInput && this.selectedSynopsis) {
+        this.userKeydown = fromEvent<InputEvent>(this.textInput, 'input');
+        this.sentence = this.selectedSynopsis.texte.split("");
+      }
+      this.subscription = this.userKeydown.subscribe((e) => {
+        this.typeCount++
+        if (this.typeCount === 1) {
+          this.timing();
+        }
+        let newTabSentence = this.entered.split("");
+        if (e.inputType === 'insertText') {
+          if (this.i <= this.sentence.length) {
+            if (this.sentence[this.i] === newTabSentence[this.i]) {
+              this.spans[this.i].classList.add("success")
+              this.spans[this.i].classList.remove("lose")
+            } else {
+              this.spans[this.i].classList.add("lose", "retry")
+              this.spans[this.i].classList.remove("success")
+              this.errorsCount++;
+            }
 
-          if (this.u > 0) {
-            this.spans[this.u].classList.remove("current");
+            if (this.u > 0) {
+              this.spans[this.u].classList.remove("current");
+            }
+            this.i++;
+            this.u++;
+
           }
-          this.i++;
-          this.u++;
-          
-        }
-        if ((this.spans[this.i].offsetTop + ((this.spans[this.i].offsetHeight * 2)) > container.offsetHeight) && this.spans[this.i].offsetTop > this.spans[this.i - 1].offsetTop) {
-          container.scrollTop = container.scrollTop + this.spans[this.i].offsetHeight + 25.75;
-        }
-        this.spans[this.u].classList.add("current");
-      }
-      else if (e.inputType === 'deleteContentBackward') {
-        if (this.i > 0 && this.u > 0) {
-          this.u--;
-          this.i--;
+          if ((this.spans[this.i].offsetTop + ((this.spans[this.i].offsetHeight * 2)) > container.offsetHeight) && this.spans[this.i].offsetTop > this.spans[this.i - 1].offsetTop) {
+            container.scrollTop = container.scrollTop + this.spans[this.i].offsetHeight + 25;
+            console.log(container.scrollTop);
+            console.log(this.spans[this.i].offsetHeight + 25);
+            
+          }
           this.spans[this.u].classList.add("current");
-          this.spans[this.u + 1].classList.remove("current");
-          this.spans[this.i].classList.remove("success");
-          this.spans[this.i].classList.remove("lose");
         }
-      }
-      let sensLettersLength = this.selectedSynopsis.texte.split("").length;
-      let entersWordsLength = this.entered.split("").length;
-      this.speed = Math.ceil(entersWordsLength / ((this.count - (this.errorsCount * 0.5))));
-      this.precision = Math.floor(((sensLettersLength - this.errorsCount) / sensLettersLength) * 100);
-      this.subscription.unsubscribe();
-    })
+        else if (e.inputType === 'deleteContentBackward') {
+          if (this.i > 0 && this.u > 0) {
+            this.u--;
+            this.i--;
+            this.spans[this.u].classList.add("current");
+            this.spans[this.u + 1].classList.remove("current");
+            this.spans[this.i].classList.remove("success");
+            this.spans[this.i].classList.remove("lose");
+          }
+        }
+        let sensLettersLength = this.selectedSynopsis.texte.split("").length;
+        let entersWordsLength = this.entered.split("").length;
+        this.precision = Math.floor(((sensLettersLength - this.errorsCount) / sensLettersLength) * 100);
+        this.subscription.unsubscribe();
+        if (newTabSentence.length === this.selectedSynopsis.texte.length - 1) {
+          clearInterval(this.intervalId)
+        }
+      })
+    }
   }
   timing() {
     let min: number;
     let sec: number;
     this.intervalId = setInterval(() => {
+      if (this.i > 6 && this.typeCount > this.errorsCount) {
+        this.speed = Math.ceil((this.typeCount - (this.errorsCount * 4)) / (this.count / 10));
+      }
+      else{
+        this.speed = 0;
+      }
       this.count++;
       sec = this.count - min * 60;
       min = Math.floor(this.count / 60);
-      this.time = `${min}:${sec}`
-      if (this.i === this.selectedSynopsis.texte.length-1) {
-        clearInterval(this.intervalId)
-        // score.style.display = "block";
-        // pourcent.innerText = `${precis}%`
-        // errors.innerText = `${this.errorsCount}`;
-      }
+      this.time = `${this.double(min)}:${this.double(sec)}`
     }, 1000);
+  }
+  double(num: number): string {
+    if (num > 9) {
+      return num.toString();
+    } else {
+      return `0${num}`
+    }
   }
 }
