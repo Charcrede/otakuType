@@ -3,7 +3,7 @@ import { Citations, Synopsis } from "./otaku";
 export const SYNOPSIS: Synopsis[] = [
     {
         id: "Synopsis #1",
-        url: "assets/Synopsis/img/Tensei Shitara Slime Datta Ken (Moi, quand je me réincarne en Slime).jpg",
+        url: "assets/Synopsis/img/Tenseishitaraslimedattaken.jpg",
         anime: "Tensei shitara slime datta ken (moi, quand je me reincarne en slime)",
         texte: "Satoru, employé de bureau lambda, se fait assassiner par un criminel en pleine rue. Son histoire aurait dû s'arrêter là, mais il se retrouve soudain réincarné dans un autre monde sous la forme d'un Slime, le monstre le plus faible du bestiaire fantastique. Son nouveau corps est équipé de deux compétences uniques : « Prédateur », lui permettant de récupérer les aptitudes de ses adversaires, et « Grand sage », grâce à laquelle il acquiert une compréhension aigüe de son environnement. Mais même muni de ces armes, ses chances de survie semblent encore limitées…",
         validate: false,
@@ -101,7 +101,7 @@ export const SYNOPSIS: Synopsis[] = [
     },
     {
         id: "Synopsis #15",
-        url: "assets/Synopsis/img/J'épargne 80 000 pièces d'or dans un autre monde pour ma retraite.jpg",
+        url: "assets/Synopsis/img/Pretde80000.jpg",
         anime: "J'épargne 80 000 pièces d'or dans un autre monde pour ma retraite",
         texte: "Mitsuha Yamano est une jeune fille de 18 ans qui est souvent comparée à une collégienne en raison de sa petite taille. À l'approche des épreuves d'entrée à l'université, elle perd son frère puis peu après ses parents. En raison du choc de la perte de sa famille, elle rate tous ses examens. Un jour, Mitsuha tombe d'une falaise et se retrouve dans un autre monde similaire à une Europe médiévale. Suite à un combat mortel contre des loups, elle découvre qu'il est possible de passer de ce monde au sien. Mitsuha décide de vivre en habitant dans les 2 mondes à la fois, gagner de l'argent dans le monde médiéval et vivre confortablement dans son monde moderne. Tout en gardant secrète l'existence d'un autre monde, Mitsuha va se procurer des armes afin d'explorer l'autre monde mais, en raison de sa taille, les habitants la prennent pour une petite fille.",
         validate: false,

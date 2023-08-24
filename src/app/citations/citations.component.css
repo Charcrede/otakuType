@@ -47,7 +47,7 @@ figcaption{
     background-color: rgba(255, 255, 255, 0.5);
     border-bottom-left-radius:30px ;
     border-bottom-right-radius:30px ;
-    height: 70px;
+    height: auto;
     margin-top:15px;
 }
 /* img{
@@ -56,8 +56,12 @@ figcaption{
 .figcaption{
     color: #fff;
     text-align: center;
-    font-size: 1.5rem;
+    /* font-size: 1.5rem; */
     font-weight: 700;
+}
+
+button{
+    font-size: 1.4rem;
 }
 
 
