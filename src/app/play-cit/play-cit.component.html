@@ -1,0 +1,25 @@
+<div *ngIf="service.selectedSynopsis">
+    <div class="titre_nom">
+        <span class="id">{{service.selectedCitation.id}}</span>
+        <span class="nom">{{service.selectedCitation.animeName}}</span>
+    </div>
+    <div class="texte"
+        style="background:linear-gradient(to bottom right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),url('{{service.selectedCitation.url}}')repeat fixed center;">
+       
+        <div *ngFor=" let word of service.wordCitation" class="mot">
+            <span *ngFor="let letter of word" class="lettre">{{letter}}</span>
+            <span class="lettre">&nbsp;</span>
+        </div>
+            <input type="text" autofocus class="input" (input)="typing()" id="input" [(ngModel)]="entered" name="entered">
+    </div>
+    <div class="scoreSuivant">
+        <div class="score">
+            <span>00MPM</span>
+            <span>00%</span>
+            <span>00:00</span>
+        </div>
+        <div>
+            <button class="suivant">Suivant</button>
+        </div>
+    </div>
+</div>
