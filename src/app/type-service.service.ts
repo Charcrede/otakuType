@@ -10,8 +10,8 @@ import { NgModel } from '@angular/forms'
 export class TypeServiceService {
 
   constructor() { }
-  Synopsys: Synopsis[] = SYNOPSIS;
-  Citations: Citations[] = CITATIONS;
+  Synopsys: Synopsis[] = SYNOPSIS.sort((a, b)=>a.texte.split("").length - b.texte.split("").length);
+  Citations: Citations[] = CITATIONS.sort((a, b)=>a.text.split("").length - b.text.split("").length);
   selectedSynopsis!: Synopsis;
   selectedCitation!: Citations;
   words!: string[][];

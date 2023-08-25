@@ -5,7 +5,7 @@
     </div>
     <div class="relative">
         <div class="texte"
-            style="background:linear-gradient(to bottom right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),url('{{service.selectedCitation.url}}')repeat fixed center;" #texte>
+            style="background:linear-gradient(to bottom right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),url('{{service.selectedCitation.url}}')repeat fixed center;" #texte>
             <!-- <img src="{{service.selectedCitation.url}}" alt=""> -->
             <div *ngFor=" let word of service.wordCitation" class="mot">
                 <!-- <div>{{word}}</div> -->
@@ -13,6 +13,10 @@
                 <span class="lettre">&nbsp;</span>
             </div>
                 <input type="text" autofocus class="input" (input)="typing()" id="input" [(ngModel)]="entered" name="entered" autocomplete="off" autocapitalize="off" autocorrect="off">
+                <div class="shippaiSeiko" *ngIf="i >= selectedCitation.text.split('').length">
+                    <p class="shippai" *ngIf="speed < 30">shippai</p>
+                    <p class="seiko" *ngIf="speed >= 30">seiko</p>
+                </div>
         </div>
         <div class="scoreSuivant">
             <div class="score">

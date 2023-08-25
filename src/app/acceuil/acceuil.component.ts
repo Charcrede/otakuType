@@ -14,6 +14,7 @@ export class AcceuilComponent implements OnInit {
   letter !: string[];
   finalLetter !: string;
   opacities1: number[] = [];
+  newSentences!:string;
 
   ngOnInit() {
     this.inputText = "DES SYNOPSIS ET CITATIONS MANGA POUR TESTER VOTRE VITESSE DE SAISIE"; // Remplacez par votre chaîne de caractères
@@ -25,6 +26,7 @@ export class AcceuilComponent implements OnInit {
     this.opacities = this.words.map(() => 0);
     this.opacities1 = this.words.map(() => 0);
    
+    this.opacities = this.words.map(() => 0)
 
     this.words.forEach((letters, index) => {
       setTimeout(() => {

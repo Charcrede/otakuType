@@ -13,6 +13,10 @@
                 <span class="lettre">&nbsp;</span>
             </div>
                 <input type="text" autofocus class="input" (input)="typing()" id="input" [(ngModel)]="entered" name="entered" autocomplete="off" autocapitalize="off" autocorrect="off">
+                <div class="shippaiSeiko" *ngIf="i >= selectedSynopsis.texte.split('').length">
+                    <p class="shippai" *ngIf="speed < 30">shippai</p>
+                    <p class="seiko" *ngIf="speed >= 30">seiko</p>
+                </div>
         </div>
         <div class="scoreSuivant">
             <div class="score">
