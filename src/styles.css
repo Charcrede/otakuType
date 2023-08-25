@@ -89,20 +89,6 @@
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 body.body{
     font-family: ProductSans;
 }
@@ -132,8 +118,8 @@ img{
 }
 span.lettre{
     text-align: center;
+    outline: .2px solid rgba(83, 0, 156, 0.179);
     /* padding: .5rem .2rem; */
-    outline: 1px solid #0000002d;
     border-radius: 5px;
     vertical-align: middle;
     /* margin-block: .5rem;  */
@@ -148,7 +134,7 @@ span.lettre{
     gap: 1rem;
 }
 .scoreSuivant{
-    background-color: #0732a3;
+    background-color: #5242c6;
     margin-inline: auto;
     display: flex;
     width: 100%;
@@ -177,7 +163,7 @@ span.lettre{
 .id{
     background-color: #fff;
     border: 1px solid #fff;
-    color: #1f4173;
+    color: #1f4175;
     margin-right: 10px;
 }
 .nom{
@@ -186,16 +172,16 @@ span.lettre{
     padding-inline: 10px;
 }
 .lose{
-    color: #fff;
-    background-color: #751f4b;
+    color: rgb(255, 255, 255);
+    background-color: #ff4e4ea5;
 }
 .success{
-    color: #fff;
-    background-color: #1f4175bf;
+    color: rgb(255, 255, 255);
+    background-color: #9b49ffa5;
 }
 .retry.success{
-    color: #fff;
-    background-color: #e3af04bf;
+    color: rgb(83, 0, 156);
+    background-color: #ffee00a5;
 }
 .current{
     border-bottom:2px solid #1f4175;

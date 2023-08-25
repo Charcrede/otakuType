@@ -68,8 +68,8 @@ export class PlaySynopComponent implements OnInit {
             this.u++;
 
           }
-          if ((this.spans[this.i].offsetTop + ((this.spans[this.i].offsetHeight)) > container.offsetHeight) && this.spans[this.i].offsetTop > this.spans[this.i - 1].offsetTop) {
-            container.scrollTop = container.scrollTop + this.spans[this.i].offsetHeight + 25;
+          if ((this.spans[this.i].offsetTop + ((this.spans[this.i].offsetHeight)*2) > container.offsetHeight) && this.spans[this.i].offsetTop > this.spans[this.i - 1].offsetTop) {
+            container.scrollTop = container.scrollTop + this.spans[this.i].offsetHeight + 22;
             console.log(container.scrollTop);
             console.log(this.spans[this.i].offsetHeight + 25);
             
@@ -102,9 +102,11 @@ export class PlaySynopComponent implements OnInit {
     this.intervalId = setInterval(() => {
       if (this.i > 6 && this.typeCount > this.errorsCount) {
         this.speed = Math.ceil((this.typeCount - (this.errorsCount * 4)) / (this.count / 10));
-      }
-      else{
-        this.speed = 0;
+        if (this.speed < 0) {
+          this.speed = 0;
+        }else{
+          this.speed = this.speed;
+        }
       }
       this.count++;
       sec = this.count - min * 60;
