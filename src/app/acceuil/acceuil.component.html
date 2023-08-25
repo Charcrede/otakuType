@@ -1,4 +1,8 @@
 <div class="container containers">
-  <h1 class="d-flex justify-content-center align-items-center w-100 flex-wrap"><span *ngFor="let word of words; let i = index" class="fade-in" [style.transition]="'opacity 1s ease-in-out'" [style.opacity]="opacities[i]">{{word}}{{" "}}</span></h1>
+  <h1 class="d-flex justify-content-center align-items-center w-100 flex-wrap">
+    <div class="mx-2" *ngFor="let word of letters ; let i = index" [style.transition]="'opacity 1s ease-in-out'" [style.opacity]="opacities[i]">
+    <span *ngFor="let l of word ; let i = index" class="fade-in" [style.transition]="'opacity 1s ease-in-out'" [style.opacity]="opacities[i]">{{l}}</span>
+    <span>&nbsp;</span>
+  </div></h1>
   <div class="flag"></div>
 </div>
