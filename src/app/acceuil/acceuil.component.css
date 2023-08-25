@@ -29,3 +29,10 @@ h1 {
     font-size: 7rem;
     text-align: center;
 }
+
+.fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    display: inline-block;
+    margin-inline: 12px;
+  }

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  .fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+</style>
+</head>
+<body>
+<div id="outputContainer"></div>
+
+<script>
+function startAnimation() {
+  let inputText = "DES CITATIONS ET SYNOPSIS MANGA POUR TESTER VOTRE VITESSE DE SAISIE";
+  let outputContainer = document.getElementById("outputContainer");
+  let words = inputText.split(" ");
+//   let letters = []
+
+  outputContainer.innerHTML = ""; // Réinitialiser le contenu
+
+  words.forEach(function(word, index) {
+    let span = document.createElement("span");
+    span.textContent = word;
+    span.textContent += " "
+    span.classList.add("fade-in")
+    outputContainer.appendChild(span);
+
+    setTimeout(function() {
+      span.style.opacity = "1";
+    }, index * 500); // Délai d'affichage en millisecondes
+  });
+}
+
+startAnimation();
+</script>
+
+</body>
+</html>
+
+
+<!-- VERSION ANGULAR JS -->
+
+<div id="outputContainer">
+    <span *ngFor="let word of words; let i = index" class="fade-in" [style.transition]="'opacity 1s ease-in-out'" [style.opacity]="opacities[i]">
+      {{ word }}
+    </span>
+  </div>
+
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent implements OnInit {
+  words: string[] = [];
+  opacities: number[] = [];
+
+  ngOnInit() {
+    this.inputText = "Votre chaîne de caractères ici"; // Remplacez par votre chaîne de caractères
+    this.startAnimation();
+  }
+
+  startAnimation() {
+    this.words = this.inputText.split(' ');
+    this.opacities = this.words.map(() => 0);
+
+    this.words.forEach((word, index) => {
+      setTimeout(() => {
+        this.opacities[index] = 1;
+      }, index * 1000); // Délai d'affichage en millisecondes
+    });
+  }
+}
+
+
