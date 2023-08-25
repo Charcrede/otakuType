@@ -35,7 +35,10 @@ header{
     padding-inline: 10rem;
     padding-block:5rem;
 }
-
+.active{
+    background-color: #0732a3;
+    color: #fff;
+}
 /* div.flag {
     background-image: url("../assets/Sanstitre1.png");
     z-index: 25;
