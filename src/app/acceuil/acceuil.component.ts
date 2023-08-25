@@ -10,12 +10,13 @@ export class AcceuilComponent implements OnInit {
   opacities: number[] = [];
   inputText!: string ;
   space !: string ;
+  newSentences!:string;
 
   ngOnInit() {
     this.inputText = "DES SYNOPSIS ET CITATIONS MANGA POUR TESTER VOTRE VITESSE DE SAISIE"; // Remplacez par votre chaîne de caractères
     // this.startAnimation();
     this.words = this.inputText.split(' ');
-    this.opacities = this.words.map(() => 0);
+    this.opacities = this.words.map(() => 0)
 
     this.words.forEach((word, index) => {
       setTimeout(() => {
@@ -26,15 +27,15 @@ export class AcceuilComponent implements OnInit {
   }
 
 }
-writter(sentences: string){
-  let tab  = sentences.split("");
-  let newTab:string[] = [];
-  let i = 0;
-  setInterval(() => {
-    if (i < tab.length){
-      newTab.push(tab[i]);
-      this.newSentences = newTab.join("");
-      i++;
-    }
-  }, 70);
-}
+// writter(sentences: string){
+//   let tab  = sentences.split("");
+//   let newTab:string[] = [];
+//   let i = 0;
+//   setInterval(() => {
+//     if (i < tab.length){
+//       newTab.push(tab[i]);
+//       this.newSentences = newTab.join("");
+//       i++;
+//     }
+//   }, 70);
+// }
