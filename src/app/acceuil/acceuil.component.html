@@ -1,5 +1,4 @@
 <div class="container containers">
-  <h1>DES CITATIONS ET SYNOPSIS MANGA
-    POUR TESTER VOTRE VITESSE AU CLAVIER.</h1>
+  <h1 class="d-flex justify-content-center align-items-center w-100 flex-wrap"><span *ngFor="let word of words; let i = index" class="fade-in" [style.transition]="'opacity 1s ease-in-out'" [style.opacity]="opacities[i]">{{word}}{{" "}}</span></h1>
   <div class="flag"></div>
 </div>
