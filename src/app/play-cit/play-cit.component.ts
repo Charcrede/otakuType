@@ -30,6 +30,11 @@ export class PlayCitComponent implements OnInit {
   ngOnInit(): void {
     setTimeout(() => {
       this.spans = document.querySelectorAll(".lettre");
+      let input = document.getElementById('input');
+      console.dir(input)
+      if (input) {
+        // input.un = true;
+      }
       this.typing();
     }, 100);
   }
