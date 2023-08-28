@@ -30,10 +30,10 @@ export class PlayCitComponent implements OnInit {
   ngOnInit(): void {
     setTimeout(() => {
       this.spans = document.querySelectorAll(".lettre");
-      let input = document.getElementById('input');
+      let input:any = document.getElementById('input');
       console.dir(input)
       if (input) {
-        // input.un = true;
+        input.defaultChecked = true;
       }
       this.typing();
     }, 100);
@@ -105,9 +105,11 @@ export class PlayCitComponent implements OnInit {
     this.intervalId = setInterval(() => {
       if (this.i > 6 && this.typeCount > this.errorsCount) {
         this.speed = Math.ceil((this.typeCount - (this.errorsCount * 4)) / (this.count / 10));
-      }
-      else{
-        this.speed = 0;
+        if (this.speed < 0) {
+          this.speed = 0;
+        }else{
+          this.speed = this.speed;
+        }
       }
       this.count++;
       sec = this.count - min * 60;
