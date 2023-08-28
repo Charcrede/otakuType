@@ -19,7 +19,6 @@
 h1{
     color:#0732a3;
     background-color: #fff;
-    /* display: inline-block; */
     text-align: center;
     margin-inline: auto;
     margin-block: 3rem;
@@ -40,8 +39,9 @@ figure{
 }
 
 .image:hover figcaption {
-    display: flex;
-    top: 100%;
+    /* display: flex; */
+    opacity: 1;
+    /* top: 100%; */
 } 
 figcaption{
     display: flex;
@@ -52,6 +52,7 @@ figcaption{
     border: 1px solid #fff;
     text-align: center;
     transition: all 0.7s;
+    opacity: 0;
 }
 .figcaption{
     color: #fff;
@@ -62,6 +63,7 @@ figcaption{
 
 button{
     font-size: 1.4rem;
+    color: #1515f5c4;
 }
 
 

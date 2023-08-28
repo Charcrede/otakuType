@@ -3,7 +3,7 @@
     <figure *ngFor="let citation of citations">
         <div class="image" style="background-image: url({{citation.url}}); background-position: center; background-size: cover; background-repeat: no-repeat;">
             <figcaption>
-                <button class="btn figcaption" (click)="this.service.getCitations(citation)" routerLink="/citation-play">{{citation.animeName}}</button>
+                <button class="btn figcaption" (click)="this.service.getCitations(citation)" routerLink="/citation-play" style="font-family: Bebas;">{{citation.animeName}}</button>
             </figcaption>
         </div>
     </figure>
