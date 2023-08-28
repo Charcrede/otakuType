@@ -17,8 +17,7 @@ export class AcceuilComponent implements OnInit {
   newSentences!:string;
 
   ngOnInit() {
-    this.inputText = "DES SYNOPSIS ET CITATIONS MANGA POUR TESTER VOTRE VITESSE DE SAISIE"; // Remplacez par votre chaîne de caractères
-    // this.startAnimation();
+    this.inputText = "DES SYNOPSIS ET CITATIONS MANGA POUR TESTER VOTRE VITESSE DE SAISIE"; // 
     this.words = this.inputText.split(' ');
     for (let i = 0; i < this.words.length; i++) {
       this.letters.push(this.words[i].split(""))
@@ -31,15 +30,13 @@ export class AcceuilComponent implements OnInit {
     this.words.forEach((letters, index) => {
       setTimeout(() => {
         this.opacities[index] = 1;
-      }, index * 600);
+      }, index * 300);
     });
 
     this.letters.forEach((letter, i)=>{
       setTimeout(() => {
         this.opacities1[i] = 1;
-      }, 600);
-    })
-
-   
+      }, 300);
+    })   
   }
 }
