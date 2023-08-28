@@ -22,10 +22,12 @@ export class TypeServiceService {
   entered!: any;
   i: number = 0;
   u: number = 0;
+  monStockage = localStorage;
   errorsCount: number = 0;
   
   getSynopsis(synop: Synopsis){
     this.selectedSynopsis = synop;
+    this.monStockage.setItem("texteSynop", this.selectedSynopsis.texte)
     let tab1 = this.selectedSynopsis.texte.split(" ");
     let tab2 = [];
     for (let i = 0; i < tab1.length; i++) {
@@ -37,6 +39,7 @@ export class TypeServiceService {
   
   getCitations(citation: Citations){
     this.selectedCitation = citation;
+    this.monStockage.setItem("texteCit", this.selectedCitation.text)
     let tab3 = this.selectedCitation.text.split(" ");
     let tab4 = [];
     for (let i = 0; i < tab3.length; i++) {
