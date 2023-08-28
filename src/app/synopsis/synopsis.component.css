@@ -40,8 +40,8 @@ figure{
 }
 
 .image:hover figcaption {
-    display: flex;
     top: 100%;
+    opacity: 1;
 } 
 figcaption{
     display: flex;
@@ -52,7 +52,7 @@ figcaption{
     border: 1px solid #fff;
     text-align: center;
     transition: all 0.7s;
-    display: none;
+    opacity: 0;
 }
 
 .figcaption{
@@ -63,6 +63,7 @@ figcaption{
 
 button{
     font-size: 1.4rem;
+    color: #1515f5c4;
 }
 
 
