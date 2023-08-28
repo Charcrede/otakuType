@@ -118,7 +118,8 @@ img{
 }
 span.lettre{
     text-align: center;
-    /* outline: 0.03px solid rgba(83, 0, 156, 0.179); */
+    /* outline:.4px solid rgba(255, 255, 255, 0.045); */
+    margin-inline: 0.4px;
     /* padding: .5rem .2rem; */
     /* border-radius: 5px; */
     vertical-align: middle;

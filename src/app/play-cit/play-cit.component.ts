@@ -28,10 +28,11 @@ export class PlayCitComponent implements OnInit {
   selectedCitation = this.service.selectedCitation;
   constructor(public service: TypeServiceService) { }
   ngOnInit(): void {
+    this.service.verifyCit();
+    this.selectedCitation = this.service.selectedCitation;
     setTimeout(() => {
       this.spans = document.querySelectorAll(".lettre");
-      let input:any = document.getElementById('input');
-      console.dir(input)
+      let input: any = document.getElementById('input');
       if (input) {
         input.defaultChecked = true;
       }
@@ -40,7 +41,7 @@ export class PlayCitComponent implements OnInit {
   }
   @ViewChild('texte') texte !: ElementRef;
   typing() {
-    if (this.i < this.selectedCitation.text.split("").length-1) {
+    if (this.i < this.selectedCitation.text.split("").length - 1) {
       const container = this.texte.nativeElement;
       this.textInput = document.getElementById("input");
       if (this.textInput && this.selectedCitation) {
@@ -75,7 +76,7 @@ export class PlayCitComponent implements OnInit {
             container.scrollTop = container.scrollTop + this.spans[this.i].offsetHeight + 25;
             console.log(container.scrollTop);
             console.log(this.spans[this.i].offsetHeight + 25);
-            
+
           }
           this.spans[this.u].classList.add("current");
         }
@@ -90,7 +91,6 @@ export class PlayCitComponent implements OnInit {
           }
         }
         let sensLettersLength = this.selectedCitation.text.split("").length;
-        let entersWordsLength = this.entered.split("").length;
         this.precision = Math.floor(((sensLettersLength - this.errorsCount) / sensLettersLength) * 100);
         this.subscription.unsubscribe();
         if (newTabSentence.length === this.selectedCitation.text.length - 1) {
@@ -107,7 +107,7 @@ export class PlayCitComponent implements OnInit {
         this.speed = Math.ceil((this.typeCount - (this.errorsCount * 4)) / (this.count / 10));
         if (this.speed < 0) {
           this.speed = 0;
-        }else{
+        } else {
           this.speed = this.speed;
         }
       }
@@ -123,5 +123,25 @@ export class PlayCitComponent implements OnInit {
     } else {
       return `0${num}`
     }
+  }
+  rebegin() {
+    clearInterval(this.intervalId);
+    this.speed = 0;
+    this.precision = 0;
+    this.i = 0;
+    this.selectedCitation = this.service.selectedCitation;
+    this.u = 0;
+    this.entered = "";
+    this.errorsCount = 0;
+    this.count = 0;
+    this.typeCount = 0;
+    this.subscription.unsubscribe();
+    setTimeout(() => {
+      this.spans = document.querySelectorAll(".lettre");
+      let input: any = document.getElementById('input');
+      if (input) {
+        input.defaultChecked = true;
+      }
+    }, 100);
   }
 }

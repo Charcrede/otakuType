@@ -3,6 +3,7 @@ import { TypeServiceService } from '../type-service.service';
 import { NgModel, NgForm, ControlContainer } from '@angular/forms';
 import { keyframes } from '@angular/animations';
 import { fromEvent, Observable, TimeoutConfig } from 'rxjs';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-play-synop',
@@ -30,6 +31,8 @@ export class PlaySynopComponent implements OnInit {
   selectedSynopsis = this.service.selectedSynopsis;
   constructor(public service: TypeServiceService) { }
   ngOnInit(): void {
+    this.service.verifySynop();
+    this.selectedSynopsis = this.service.selectedSynopsis;
     setTimeout(() => {
       this.spans = document.querySelectorAll(".lettre");
       this.typing();
@@ -120,5 +123,25 @@ export class PlaySynopComponent implements OnInit {
     } else {
       return `0${num}`
     }
+  }
+  rebegin() {
+    clearInterval(this.intervalId);
+    this.speed = 0;
+    this.precision = 0;
+    this.i = 0;
+    this.selectedSynopsis = this.service.selectedSynopsis;
+    this.u = 0;
+    this.entered = "";
+    this.errorsCount = 0;
+    this.count = 0;
+    this.typeCount = 0;
+    this.subscription.unsubscribe();
+    setTimeout(() => {
+      this.spans = document.querySelectorAll(".lettre");
+      let input: any = document.getElementById('input');
+      if (input) {
+        input.defaultChecked = true;
+      }
+    }, 100);
   }
 }
