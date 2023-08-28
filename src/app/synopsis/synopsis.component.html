@@ -1,10 +1,11 @@
 <h1>TESTEZ VOTRE VITESSE AVEC CES SYNOPSIS</h1>
 <div class="lesSynopsis">
     <figure *ngFor="let syn of synopsis">
-        <div class="image" style="background-image: url('{{syn.url}}'); background-position: center; background-size: cover;"></div>
-        <figcaption>
-            <button class="btn figcaption" (click)="this.service.getSynopsis(syn)"
-                routerLink="/synopsis-play">{{syn.anime}}</button>
-        </figcaption>
+        <div class="image" style="background-image: url('{{syn.url}}'); background-position: center; background-size: cover;">
+            <figcaption>
+                <button class="btn figcaption" (click)="this.service.getSynopsis(syn)"
+                    routerLink="/synopsis-play">{{syn.anime}}</button>
+            </figcaption>
+        </div>
     </figure>
 </div>

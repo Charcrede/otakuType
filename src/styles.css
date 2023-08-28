@@ -118,13 +118,14 @@ img{
 }
 span.lettre{
     text-align: center;
-    outline: .2px solid rgba(83, 0, 156, 0.179);
+    /* outline: 0.03px solid rgba(83, 0, 156, 0.179); */
     /* padding: .5rem .2rem; */
-    border-radius: 5px;
+    /* border-radius: 5px; */
     vertical-align: middle;
     /* margin-block: .5rem;  */
     height: 40px;
     font-size: 3rem;
+    margin-inline: 0.4px;
     backdrop-filter: blur(.5);
 }
 .score{
@@ -173,15 +174,15 @@ span.lettre{
 }
 .lose{
     color: rgb(255, 255, 255);
-    background-color: #ff4e4ea5;
+    background-color: #fa0b0ba5;
 }
 .success{
     color: rgb(255, 255, 255);
-    background-color: #9b49ffa5;
+    background-color: #0ab55bba;
 }
 .retry.success{
-    color: rgb(83, 0, 156);
-    background-color: #ffee00a5;
+    color: rgb(255, 255, 255);
+    background-color: #ffbb00c0;
 }
 .current{
     border-bottom:2px solid #1f4175;
@@ -239,22 +240,26 @@ figcaption{
     justify-content: center;
     align-items: center;
     width: 100%;
+    height: 100%;
     border: 1px solid #fff;
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.5);
-    border-bottom-left-radius:30px ;
-    border-bottom-right-radius:30px ;
-    height: 70px;
-    margin-top:15px;
+    background-color: rgba(21, 21, 245, 0.767);
+    transition: all 0.5s;
+    top: -100%;
 }
-/* img{
-    height: 500px;
-} */
+
+
 .figcaption{
     color: #fff;
     text-align: center;
     font-size: 1.5rem;
     font-weight: 700;
+}
+
+figcaption button {
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 
 

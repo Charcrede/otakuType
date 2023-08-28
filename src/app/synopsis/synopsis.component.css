@@ -36,25 +36,33 @@ figure{
     border-top-right-radius:30px ;
     height: 400px;
     overflow:hidden;
+    transition: all 0.5s;
 }
+
+.image:hover figcaption {
+    display: flex;
+    top: 100%;
+} 
 figcaption{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
+    height: 100%;
     border: 1px solid #fff;
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.5);
-    border-bottom-left-radius:30px ;
-    border-bottom-right-radius:30px ;
-    height: auto;
-    margin-top:15px;
+    transition: all 0.7s;
+    display: none;
 }
-/* img{
-    height: 500px;
-} */
+
 .figcaption{
     color: #fff;
     text-align: center;
-    font-size: 1.5rem;
     font-weight: 700;
+}
+
+button{
+    font-size: 1.4rem;
 }
 
 
