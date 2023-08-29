@@ -90,7 +90,7 @@ export const CITATIONS: Citations[] = [
         "persoName" : "Kamina",
         "animeName" : "Tengen Toppa Gurren Lagann",
         "url" : "assets/citations/img/14.jpg", 
-        "text" : "Écoute bien Simon et ne l'oublie pas. Croyez en vous-même. Pas dans le moi qui croit en toi. Pas dans le toi qui croit en moi. Croyez en vous ... qui croit en vous! C'est très important croire en soi et avoir une bonne estime de soi."
+        "text" : "écoute bien Simon et ne l'oublie pas. Croyez en vous-même. Pas dans le moi qui croit en toi. Pas dans le toi qui croit en moi. Croyez en vous ... qui croit en vous! C'est très important croire en soi et avoir une bonne estime de soi."
     },
     {
     "id" : "Citation #14",
@@ -286,7 +286,7 @@ export const CITATIONS: Citations[] = [
         "persoName" : "Alucard",
         "animeName" : "Hellsing",
         "url" : "assets/citations/img/43.jpg", 
-        "text" : "L'abandon est ce qui détruit les gens. Lorsque vous refusez de tout votre cœur de vous rendre, transcendez votre humanité, avant même que la mort n'abandonne jamais."
+        "text" : "L'abandon est ce qui détruit les gens. Lorsque vous refusez de tout votre coeur de vous rendre, transcendez votre humanité, avant même que la mort n'abandonne jamais."
     },
     {
     "id" : "Citation #42",
@@ -335,7 +335,7 @@ export const CITATIONS: Citations[] = [
         "persoName" : "Tableau Noir",
         "animeName" : "La fille qui a sauté dans le temps",
         "url" : "assets/citations/img/50.jpg", 
-        "text" : "Le temps n'attend personne. Bien que personne ne le dise, cette phrase inspirante peut être lu écrit sur le tableau de classe dans le film d'animation Toki wo kakeru shōjo , traduit par La fille qui a sauté dans le temps"
+        "text" : "Le temps n'attend personne. Bien que personne ne le dise, cette phrase inspirante peut être lu écrit sur le tableau de classe dans le film d'animation Toki wo kakeru shojo , traduit par La fille qui a sauté dans le temps"
     },
     {
     "id" : "Citation #49",
