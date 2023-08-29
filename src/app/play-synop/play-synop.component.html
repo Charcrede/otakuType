@@ -24,6 +24,9 @@
             <div>
                 <button class="suivant" (click)="service.nextSynopsis();rebegin()">Suivant</button>
             </div>
+            <div>
+                <button class="suivant" [disabled]="service.selectedSIndice === 1" (click)="service.previousSynopsis();rebegin()">Précédent</button>
+            </div>
         </div>
     </div>
 </div>

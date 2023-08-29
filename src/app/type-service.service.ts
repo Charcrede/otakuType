@@ -57,8 +57,16 @@ export class TypeServiceService {
     this.selectedSynopsis = this.Synopsys[this.selectedSIndice++];
     this.getSynopsis(this.selectedSIndice);
   }
+  previousSynopsis() {
+    this.selectedSynopsis = this.Synopsys[this.selectedSIndice--];
+    this.getSynopsis(this.selectedSIndice);
+  }
   nextCitation() {
     this.selectedCitation = this.Citations[this.selectedCIndice++];
+    this.getCitations(this.selectedCIndice);
+  }
+  previousCitation() {
+    this.selectedCitation = this.Citations[this.selectedCIndice--];
     this.getCitations(this.selectedCIndice);
   }
   verifySynop() {

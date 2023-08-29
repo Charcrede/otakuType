@@ -14,8 +14,13 @@
             </div>
                 <input type="text" autofocus class="input" (input)="typing()" id="input" [(ngModel)]="entered" name="entered" autocomplete="off" autocapitalize="off" autocorrect="off">
                 <div class="shippaiSeiko" *ngIf="i >= selectedCitation.text.split('').length">
-                    <p class="shippai" *ngIf="speed < 30">shippai</p>
-                    <p class="seiko" *ngIf="speed >= 30">seiko</p>
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div><img src="../../assets/anya-smuh-spyxfamily.png" class="rounded-circle w-50" alt=""></div>
+                        <p class="shippai" *ngIf="speed < 30">shippai</p>
+                    </div>
+                    <div>
+                        <p class="seiko" *ngIf="speed >= 30">seiko</p>
+                    </div>
                 </div>
         </div>
         <div class="scoreSuivant">
@@ -24,8 +29,12 @@
                 <span>{{precision}}%</span>
             </div>
             <div>
-                <button class="suivant" (click)="service.nextCitation(); rebegin()">Suivant</button>
+                <button class="suivant" (click)="service.previousCitation(); rebegin()">Suivant</button>
             </div>
+            <div>
+                <button class="suivant" [disabled] ="service.selectedSIndice === 1" (click)="service.nextCitation(); rebegin()">Précédent</button>
+            </div>
+           
         </div>
     </div>
 </div>
