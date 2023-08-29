@@ -12,14 +12,14 @@ export const SYNOPSIS: Synopsis[] = [
         id: "Synopsis #2",
         url: "assets/Synopsis/img/91 Days.jpg",
         anime: "91 Days",
-        texte: "L'histoire se déroule aux États-Unis, en pleine prohibition. La mafia est alors une puissante organisation à laquelle il ne vaut mieux pas se frotter. Pourtant, Avilio décide d'affronter cette organisation gigantesque dans le seul et unique but de venger sa famille assassinée. Sa cible ? Le groupe pour lequel travaillait son père autrefois...",
+        texte: "L'histoire se déroule aux états-Unis, en pleine prohibition. La mafia est alors une puissante organisation à laquelle il ne vaut mieux pas se frotter. Pourtant, Avilio décide d'affronter cette organisation gigantesque dans le seul et unique but de venger sa famille assassinée. Sa cible ? Le groupe pour lequel travaillait son père autrefois...",
         validate: false,
     },
     {
         id: "Synopsis #3",
         url: "assets/Synopsis/img/Angolmois Genkou Kassenki.jpg",
         anime: "Angolmois Genkou Kassenki",
-        texte: "L'histoire prend place à l'époque de Kamakura où les mongols tentent d'envahir le Japon, on suit alors l'aventure d'un samouraï prénommé Kuchii Jinzaburō essayant de protéger son pays.",
+        texte: "L'histoire prend place à l'époque de Kamakura où les mongols tentent d'envahir le Japon, on suit alors l'aventure d'un samouraï prénommé Kuchii Jinzaburo essayant de protéger son pays.",
         validate: false,
     },
     {
@@ -54,7 +54,7 @@ export const SYNOPSIS: Synopsis[] = [
         id: "Synopsis #8",
         url: "assets/Synopsis/img/Classroom Of Elite.jpg",
         anime: "Classroom Of Elite",
-        texte: "L'histoire prend place dans le lycée Kōdo Ikusei, une école prestigieuse dotée d'installations ultramodernes où 100% des étudiants vont ensuite à l'université ou entrent dans la vie active. Les élèves ont une liberté totale, ils peuvent avoir la coupe de cheveux qu'ils désirent et apporter n'importe quel bien personnel dans l'établissement. Kōdo Ikusei est comme le paradis, mais seulement en apparence, en effet seulement les étudiants avec de bons résultats reçoivent ce genre de traitement. Dans cette école, chaque mois, selon les notes et le comportement d'une classe, celle-ci se voit attribuer un nombre de points en conséquence. Ces points permettent l'achat en tout genre au sein de l'école (nourriture, jeux, consoles, ...). De plus chaque groupe est classé en fonction du nombre de points reçus. Kiyotaka Ayanokōji est un élève de la classe D, regroupant les pires élèves de l'établissement, ceux avec les résultats les plus mauvais. Pour une certaine raison, Kiyotaka a été négligent durant les examens d'entrée et a donc été placé dans cette fameuse classe. Après avoir rencontré Suzune Horikita et Kikyō Kushida, deux élèves de sa classe, Kiyotaka Ayanokōji et ses nouvelles camarades décident ensemble de coopérer afin d'améliorer les notes de leur classe et essayeront d'atteindre les classes supérieures.",
+        texte: "L'histoire prend place dans le lycée Kodo Ikusei, une école prestigieuse dotée d'installations ultramodernes où 100% des étudiants vont ensuite à l'université ou entrent dans la vie active. Les élèves ont une liberté totale, ils peuvent avoir la coupe de cheveux qu'ils désirent et apporter n'importe quel bien personnel dans l'établissement. Kodo Ikusei est comme le paradis, mais seulement en apparence, en effet seulement les étudiants avec de bons résultats reçoivent ce genre de traitement. Dans cette école, chaque mois, selon les notes et le comportement d'une classe, celle-ci se voit attribuer un nombre de points en conséquence. Ces points permettent l'achat en tout genre au sein de l'école (nourriture, jeux, consoles, ...). De plus chaque groupe est classé en fonction du nombre de points reçus. Kiyotaka Ayanokoji est un élève de la classe D, regroupant les pires élèves de l'établissement, ceux avec les résultats les plus mauvais. Pour une certaine raison, Kiyotaka a été négligent durant les examens d'entrée et a donc été placé dans cette fameuse classe. Après avoir rencontré Suzune Horikita et Kikyo Kushida, deux élèves de sa classe, Kiyotaka Ayanokoji et ses nouvelles camarades décident ensemble de coopérer afin d'améliorer les notes de leur classe et essayeront d'atteindre les classes supérieures.",
         validate: false,
     },
     {
@@ -138,7 +138,7 @@ export const SYNOPSIS: Synopsis[] = [
         id: "Synopsis #20",
         url: "assets/Synopsis/img/Onii-chan is done for.jpg",
         anime: "Onii-chan is done for",
-        texte: "Mahiro Oyama est un NEET hikikomori se retrouvant dans une situation des plus étrange. À son réveil, il constate que son corps n'est pas le même mais celui d'une jeune fille. Le coupable de cette transformation, sa sœur cadette, Mihari Oyama, qui a pour but de faire de son frère un homme responsable.",
+        texte: "Mahiro Oyama est un NEET hikikomori se retrouvant dans une situation des plus étrange. À son réveil, il constate que son corps n'est pas le même mais celui d'une jeune fille. Le coupable de cette transformation, sa soeur cadette, Mihari Oyama, qui a pour but de faire de son frère un homme responsable.",
         validate: false,
     },
     {
@@ -178,8 +178,8 @@ export const SYNOPSIS: Synopsis[] = [
     },
     {
         id: "Synopsis #26",
-        url: "assets/Synopsis/img/Nōmin Kanren no Skill Bakka Agetetara Nazeka Tsuyoku Natta.jpg",
-        anime: "Nōmin Kanren no Skill Bakka Agetetara Nazeka Tsuyoku Natta",
+        url: "assets/Synopsis/img/Nomin Kanren no Skill Bakka Agetetara Nazeka Tsuyoku Natta.jpg",
+        anime: "Nomin Kanren no Skill Bakka Agetetara Nazeka Tsuyoku Natta",
         texte: "Al Wayn est un jeune homme de 17 ans qui souhaite vivre une vie paisible en tant que fermier. Pour cela, il décide de monter une grande partie de ses compétences en agriculture. Quant aux autres compétences, il décide de les améliorer de temps en temps quand il aidera ses amis sur divers travaux...",
         validate: false,
     },
@@ -201,7 +201,7 @@ export const SYNOPSIS: Synopsis[] = [
         id: "Synopsis #29",
         url: "assets/Synopsis/img/Love All play.jpg",
         anime: "Love All play",
-        texte: "L’ 'histoire se centre sur Ryō Mizushima qui a rejoint l'équipe de badminton de son collège en étant très motivé mais qui, sans entraîneur approprié, a fini dans l'obscurité. Néanmoins, il a réussi à atteindre le tournoi préfectoral grâce à sa force physique. Aujourd'hui, il rejoint la prestigieuse équipe de badminton du lycée Yokohama-Minato sous la direction du légendaire entraîneur Ebihara et entouré de coéquipiers talentueux. Il souhaite devenir un athlète de haut niveau pour ainsi amener son équipe au tournoi inter-lycées.",
+        texte: "L’ 'histoire se centre sur Ryo Mizushima qui a rejoint l'équipe de badminton de son collège en étant très motivé mais qui, sans entraîneur approprié, a fini dans l'obscurité. Néanmoins, il a réussi à atteindre le tournoi préfectoral grâce à sa force physique. Aujourd'hui, il rejoint la prestigieuse équipe de badminton du lycée Yokohama-Minato sous la direction du légendaire entraîneur Ebihara et entouré de coéquipiers talentueux. Il souhaite devenir un athlète de haut niveau pour ainsi amener son équipe au tournoi inter-lycées.",
         validate: false,
     },
     {
@@ -271,7 +271,7 @@ export const SYNOPSIS: Synopsis[] = [
         id: "Synopsis #39",
         url: "assets/Synopsis/img/Attack on titan.jpg",
         anime: "Attaque des titans",
-        texte: "Il y a 107 ans, les Titans ont presque exterminé la race humaine. Ces Titans mesurent principalement une dizaine de mètres et ils se nourrissent d'humains. Les humains ayant survécus à cette extermination ont construit une cité fortifiéeavec des murs d'enceinte de 50 mètres de haut pour pouvoir se protéger des Titans. Pendant 100 ans les humains ont connu la paix. Eren est un jeune garçon qui rêve de sortir de la ville pour explorer le monde extérieur. Il mène une vie paisible avec ses parents et sa sœur Mikasa dans le district de Shiganshina. Mais un jour de l'année 845, un Titan de plus de 60 mètres de haut apparaît. Il démolit une partie du mur du district de Shiganshina et provoque une invasion de Titans. Eren verra sa mère se faire dévorer sous ses yeux sans rien pouvoir faire. Il décidera après ces événements traumatisants de s'engager dans les forces militaires de la ville avec pour but d'exterminer tous les Titans qui exiattaque des titans saison",
+        texte: "Il y a 107 ans, les Titans ont presque exterminé la race humaine. Ces Titans mesurent principalement une dizaine de mètres et ils se nourrissent d'humains. Les humains ayant survécus à cette extermination ont construit une cité fortifiéeavec des murs d'enceinte de 50 mètres de haut pour pouvoir se protéger des Titans. Pendant 100 ans les humains ont connu la paix. Eren est un jeune garçon qui rêve de sortir de la ville pour explorer le monde extérieur. Il mène une vie paisible avec ses parents et sa soeur Mikasa dans le district de Shiganshina. Mais un jour de l'année 845, un Titan de plus de 60 mètres de haut apparaît. Il démolit une partie du mur du district de Shiganshina et provoque une invasion de Titans. Eren verra sa mère se faire dévorer sous ses yeux sans rien pouvoir faire. Il décidera après ces événements traumatisants de s'engager dans les forces militaires de la ville avec pour but d'exterminer tous les Titans qui exiattaque des titans saison",
         validate: false,
     },
     {

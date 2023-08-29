@@ -18,14 +18,17 @@ export class PlaySynopComponent implements OnInit {
   u: number = 0;
   errorsCount: number = 0;
   spans!: any;
+  recommencer: boolean = false;
   lose: boolean = false;
   success: boolean = false;
   textInput!: HTMLElement | null;
   userKeydown!: Observable<InputEvent>;
   subscription!: any;
   speed: number = 0;
+  errorsTable: number[] = [];
   time: string = "00:00";
   precision: number = 0;
+  container!: HTMLElement;
   typeCount = 0;
   intervalId!: any;
   selectedSynopsis = this.service.selectedSynopsis;
@@ -33,6 +36,7 @@ export class PlaySynopComponent implements OnInit {
   ngOnInit(): void {
     this.service.verifySynop();
     this.selectedSynopsis = this.service.selectedSynopsis;
+    this.recommencer = false;
     setTimeout(() => {
       this.spans = document.querySelectorAll(".lettre");
       this.typing();
@@ -41,7 +45,7 @@ export class PlaySynopComponent implements OnInit {
   @ViewChild('texte') texte !: ElementRef;
   typing() {
     if (this.i < this.selectedSynopsis.texte.split("").length-1) {
-      const container = this.texte.nativeElement;
+      this.container = this.texte.nativeElement;
       this.textInput = document.getElementById("input");
       if (this.textInput && this.selectedSynopsis) {
         this.userKeydown = fromEvent<InputEvent>(this.textInput, 'input');
@@ -56,12 +60,17 @@ export class PlaySynopComponent implements OnInit {
         if (e.inputType === 'insertText') {
           if (this.i <= this.sentence.length) {
             if (this.sentence[this.i] === newTabSentence[this.i]) {
+              this.errorsTable = [];
               this.spans[this.i].classList.add("success")
               this.spans[this.i].classList.remove("lose")
             } else {
               this.spans[this.i].classList.add("lose", "retry")
               this.spans[this.i].classList.remove("success")
               this.errorsCount++;
+              this.errorsTable.push(this.errorsCount);
+              if (this.errorsTable.length >= 10) {
+                this.recommencer = true;
+              }
             }
 
             if (this.u > 0) {
@@ -71,9 +80,9 @@ export class PlaySynopComponent implements OnInit {
             this.u++;
 
           }
-          if ((this.spans[this.i].offsetTop + ((this.spans[this.i].offsetHeight)*2) > container.offsetHeight) && this.spans[this.i].offsetTop > this.spans[this.i - 1].offsetTop) {
-            container.scrollTop = container.scrollTop + this.spans[this.i].offsetHeight + 22;
-            console.log(container.scrollTop);
+          if ((this.spans[this.i].offsetTop + ((this.spans[this.i].offsetHeight)*2) > this.container.offsetHeight) && this.spans[this.i].offsetTop > this.spans[this.i - 1].offsetTop) {
+            this.container.scrollTop = this.container.scrollTop + this.spans[this.i].offsetHeight + 22;
+            console.log(this.container.scrollTop);
             console.log(this.spans[this.i].offsetHeight + 25);
             
           }
@@ -142,6 +151,27 @@ export class PlaySynopComponent implements OnInit {
       if (input) {
         input.defaultChecked = true;
       }
+    }, 100);
+  }
+  restart(){
+    this.errorsTable = [];
+    this.container.scrollTop = 0;
+    this.speed = 0;
+    this.precision = 0;
+    this.i = 0;
+    this.selectedSynopsis = this.service.selectedSynopsis;
+    this.u = 0;
+    this.entered = "";
+    this.errorsCount = 0;
+    this.count = 0;
+    this.typeCount = 0;
+    this.subscription.unsubscribe();
+    this.service.verifySynop();
+    this.selectedSynopsis = this.service.selectedSynopsis;
+    this.recommencer = false;
+    setTimeout(() => {
+      this.spans = document.querySelectorAll(".lettre");
+      this.typing();
     }, 100);
   }
 }
