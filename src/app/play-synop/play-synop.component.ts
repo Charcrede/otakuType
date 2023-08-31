@@ -138,6 +138,7 @@ export class PlaySynopComponent implements OnInit {
     this.speed = 0;
     this.precision = 0;
     this.i = 0;
+    this.container.scrollTop = 0;
     this.selectedSynopsis = this.service.selectedSynopsis;
     this.u = 0;
     this.entered = "";
