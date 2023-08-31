@@ -61,7 +61,8 @@ export class PlayCitComponent implements OnInit {
           if (this.i <= this.sentence.length) {
             if (this.sentence[this.i] === newTabSentence[this.i]) {
               this.spans[this.i].classList.add("success")
-              this.spans[this.i].classList.remove("lose")
+              this.spans[this.i].classList.remove("lose");
+              this.errorsTable = [];
             } else {
               this.spans[this.i].classList.add("lose", "retry")
               this.spans[this.i].classList.remove("success")
