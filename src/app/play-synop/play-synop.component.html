@@ -10,7 +10,7 @@
                 <span *ngFor="let letter of word" class="lettre">{{letter}}</span>
                 <span class="lettre">&nbsp;&nbsp;</span>
             </div>
-                <input type="text" autofocus class="input" *ngIf="!recommencer" (input)="typing()" id="input" [(ngModel)]="entered" name="entered" autocomplete="off" autocapitalize="off" autocorrect="off">
+                <input type="text" [autofocus]="selectInput" class="input" *ngIf="!recommencer" (input)="typing()" id="input" [(ngModel)]="entered" name="entered" autocomplete="off" autocapitalize="off" autocorrect="off">
                 <div class="shippaiSeiko" *ngIf="i >= selectedSynopsis.texte.split('').length">
                     <p class="shippai" *ngIf="speed < 30">shippai</p>
                     <p class="seiko" *ngIf="speed >= 30">seiko</p>

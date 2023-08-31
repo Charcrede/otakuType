@@ -18,6 +18,7 @@ export class PlaySynopComponent implements OnInit {
   u: number = 0;
   errorsCount: number = 0;
   spans!: any;
+  selectInput: boolean = true;
   recommencer: boolean = false;
   lose: boolean = false;
   success: boolean = false;
@@ -41,6 +42,9 @@ export class PlaySynopComponent implements OnInit {
       this.spans = document.querySelectorAll(".lettre");
       this.typing();
     }, 100);
+  }
+  ngAfterViewInit(){
+    this.selectInput = true;
   }
   @ViewChild('texte') texte !: ElementRef;
   typing() {
