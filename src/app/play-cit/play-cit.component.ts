@@ -25,6 +25,9 @@ export class PlayCitComponent implements OnInit {
   precision: number = 0;
   typeCount = 0;
   intervalId!: any;
+  errorsTable : number[] = [];
+  container!: HTMLElement;
+  recommencer: boolean = false;
   selectedCitation = this.service.selectedCitation;
   constructor(public service: TypeServiceService) { }
   ngOnInit(): void {
@@ -142,6 +145,28 @@ export class PlayCitComponent implements OnInit {
       if (input) {
         input.defaultChecked = true;
       }
+    }, 100);
+  }
+  
+  restart(){
+    this.errorsTable = [];
+    this.container.scrollTop = 0;
+    this.speed = 0;
+    this.precision = 0;
+    this.i = 0;
+    this.selectedCitation = this.service.selectedCitation;
+    this.u = 0;
+    this.entered = "";
+    this.errorsCount = 0;
+    this.count = 0;
+    this.typeCount = 0;
+    this.subscription.unsubscribe();
+    this.service.verifyCit();
+    this.selectedCitation = this.service.selectedCitation;
+    this.recommencer = false;
+    setTimeout(() => {
+      this.spans = document.querySelectorAll(".lettre");
+      this.typing();
     }, 100);
   }
 }

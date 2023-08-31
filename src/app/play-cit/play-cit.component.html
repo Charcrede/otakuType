@@ -21,6 +21,8 @@
                     <div>
                         <p class="seiko" *ngIf="speed >= 30">seiko</p>
                     </div>
+                    <p class="rebeginP" *ngIf="recommencer"><button class="rebegin" (click)="restart()">Trop d'erreur, veuillez
+                        recommencer</button></p>
                 </div>
         </div>
         <div class="scoreSuivant">
