@@ -24,10 +24,13 @@ export class PlayCitComponent implements OnInit {
   time: string = "00:00";
   precision: number = 0;
   typeCount = 0;
-  intervalId!: any;
-  errorsTable : number[] = [];
+  errorsTable: number[] = [];
   container!: HTMLElement;
-  recommencer: boolean = false;
+  recommencer:boolean =  false;
+  intervalId!: any;
+  // errorsTable : number[] = [];
+  // container!: HTMLElement;
+  // recommencer: boolean = false;
   selectedCitation = this.service.selectedCitation;
   constructor(public service: TypeServiceService) { }
   ngOnInit(): void {
@@ -45,7 +48,7 @@ export class PlayCitComponent implements OnInit {
   @ViewChild('texte') texte !: ElementRef;
   typing() {
     if (this.i < this.selectedCitation.text.split("").length - 1) {
-      const container = this.texte.nativeElement;
+      this.container = this.texte.nativeElement;
       this.textInput = document.getElementById("input");
       if (this.textInput && this.selectedCitation) {
         this.userKeydown = fromEvent<InputEvent>(this.textInput, 'input');
@@ -61,11 +64,16 @@ export class PlayCitComponent implements OnInit {
           if (this.i <= this.sentence.length) {
             if (this.sentence[this.i] === newTabSentence[this.i]) {
               this.spans[this.i].classList.add("success")
-              this.spans[this.i].classList.remove("lose")
+              this.spans[this.i].classList.remove("lose");
+              this.errorsTable = [];
             } else {
               this.spans[this.i].classList.add("lose", "retry")
               this.spans[this.i].classList.remove("success")
               this.errorsCount++;
+              this.errorsTable.push(this.errorsCount);
+              if (this.errorsTable.length >= 10) {
+                this.recommencer = true;
+              }
             }
 
             if (this.u > 0) {
@@ -75,9 +83,9 @@ export class PlayCitComponent implements OnInit {
             this.u++;
 
           }
-          if ((this.spans[this.i].offsetTop + ((this.spans[this.i].offsetHeight * 2)) > container.offsetHeight) && this.spans[this.i].offsetTop > this.spans[this.i - 1].offsetTop) {
-            container.scrollTop = container.scrollTop + this.spans[this.i].offsetHeight + 25;
-            console.log(container.scrollTop);
+          if ((this.spans[this.i].offsetTop + ((this.spans[this.i].offsetHeight * 2)) > this.container.offsetHeight) && this.spans[this.i].offsetTop > this.spans[this.i - 1].offsetTop) {
+            this.container.scrollTop = this.container.scrollTop + this.spans[this.i].offsetHeight + 25;
+            console.log(this.container.scrollTop);
             console.log(this.spans[this.i].offsetHeight + 25);
 
           }
@@ -147,14 +155,12 @@ export class PlayCitComponent implements OnInit {
       }
     }, 100);
   }
-  
   restart(){
     this.errorsTable = [];
     this.container.scrollTop = 0;
     this.speed = 0;
     this.precision = 0;
     this.i = 0;
-    this.selectedCitation = this.service.selectedCitation;
     this.u = 0;
     this.entered = "";
     this.errorsCount = 0;

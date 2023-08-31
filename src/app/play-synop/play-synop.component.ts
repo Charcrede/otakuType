@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { TypeServiceService } from '../type-service.service';
 import { NgModel, NgForm, ControlContainer } from '@angular/forms';
 import { keyframes } from '@angular/animations';
@@ -10,7 +10,7 @@ import { NgIf } from '@angular/common';
   templateUrl: './play-synop.component.html',
   styleUrls: ['./play-synop.component.css']
 })
-export class PlaySynopComponent implements OnInit {
+export class PlaySynopComponent implements OnInit, AfterViewInit {
   sentence!: string[];
   entered!: string;
   i: number = 0;
@@ -18,6 +18,7 @@ export class PlaySynopComponent implements OnInit {
   u: number = 0;
   errorsCount: number = 0;
   spans!: any;
+  selectInput: boolean = false;
   recommencer: boolean = false;
   lose: boolean = false;
   success: boolean = false;
@@ -40,13 +41,21 @@ export class PlaySynopComponent implements OnInit {
     setTimeout(() => {
       this.spans = document.querySelectorAll(".lettre");
       this.typing();
+      this.textInput?.focus();
     }, 100);
+  }
+  dir(){
+    console.dir(this.textInput)
+  }
+  ngAfterViewInit(){
+    this.textInput?.focus();
   }
   @ViewChild('texte') texte !: ElementRef;
   typing() {
     if (this.i < this.selectedSynopsis.texte.split("").length-1) {
       this.container = this.texte.nativeElement;
       this.textInput = document.getElementById("input");
+      console.dir(this.textInput)
       if (this.textInput && this.selectedSynopsis) {
         this.userKeydown = fromEvent<InputEvent>(this.textInput, 'input');
         this.sentence = this.selectedSynopsis.texte.split("");
@@ -103,7 +112,7 @@ export class PlaySynopComponent implements OnInit {
         this.precision = Math.floor(((sensLettersLength - this.errorsCount) / sensLettersLength) * 100);
         this.subscription.unsubscribe();
         if (newTabSentence.length === this.selectedSynopsis.texte.length - 1) {
-          clearInterval(this.intervalId)
+          clearInterval(this.intervalId);
         }
       })
     }
@@ -134,16 +143,19 @@ export class PlaySynopComponent implements OnInit {
     }
   }
   rebegin() {
+    this.textInput?.focus();
     clearInterval(this.intervalId);
     this.speed = 0;
     this.precision = 0;
     this.i = 0;
+    this.container.scrollTop = 0;
     this.selectedSynopsis = this.service.selectedSynopsis;
     this.u = 0;
     this.entered = "";
     this.errorsCount = 0;
     this.count = 0;
     this.typeCount = 0;
+    this.recommencer = false;
     this.subscription.unsubscribe();
     setTimeout(() => {
       this.spans = document.querySelectorAll(".lettre");
@@ -172,6 +184,7 @@ export class PlaySynopComponent implements OnInit {
     setTimeout(() => {
       this.spans = document.querySelectorAll(".lettre");
       this.typing();
+    this.textInput?.focus();
     }, 100);
   }
 }

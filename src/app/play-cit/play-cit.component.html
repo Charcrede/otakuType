@@ -12,7 +12,7 @@
                 <span *ngFor="let letter of word" class="lettre">{{letter}}</span>
                 <span class="lettre">&nbsp;&nbsp;</span>
             </div>
-                <input type="text" autofocus class="input" (input)="typing()" id="input" [(ngModel)]="entered" name="entered" autocomplete="off" autocapitalize="off" autocorrect="off">
+                <input type="text" autofocus *ngIf="!recommencer" class="input" (input)="typing()" id="input" [(ngModel)]="entered" name="entered" autocomplete="off" autocapitalize="off" autocorrect="off">
                 <div class="shippaiSeiko" *ngIf="i >= selectedCitation.text.split('').length">
                     <div class="d-flex justify-content-center align-items-center">
                         <div><img src="../../assets/anya-smuh-spyxfamily.png" class="rounded-circle w-50" alt=""></div>
@@ -25,6 +25,7 @@
                         recommencer</button></p>
                 </div>
         </div>
+        <p class="rebeginP" *ngIf="recommencer"><button class="rebegin" (click)="restart()">Trop d'erreur, veuillez recommencer</button></p>
         <div class="scoreSuivant">
             <div class="score">
                 <span>{{speed}}MPM</span>
