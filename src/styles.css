@@ -149,10 +149,12 @@ span.lettre{
     color: #0732a3;
     background-color: #fff;
     border: 1px solid #fff;
-    padding: .1rem .7rem;
+    height: 50px;
+    width: 50px;
+    display: flex;justify-content: center;align-items: center;
     font-weight: 600;
     font-size: 1.5rem;
-    border-radius: 50px;
+    border-radius: 50%;
     position: relative;
     z-index: 254;
 }

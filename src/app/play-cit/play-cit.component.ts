@@ -22,6 +22,7 @@ export class PlayCitComponent implements OnInit {
   subscription!: any;
   speed: number = 0;
   time: string = "00:00";
+  play: boolean = true;
   precision: number = 0;
   typeCount = 0;
   errorsTable: number[] = [];
@@ -35,11 +36,8 @@ export class PlayCitComponent implements OnInit {
     this.selectedCitation = this.service.selectedCitation;
     setTimeout(() => {
       this.spans = document.querySelectorAll(".lettre");
-      let input: any = document.getElementById('input');
-      if (input) {
-        input.defaultChecked = true;
-      }
       this.typing();
+      this.textInput?.focus();
     }, 100);
   }
   @ViewChild('texte') texte !: ElementRef;
@@ -68,7 +66,7 @@ export class PlayCitComponent implements OnInit {
               this.spans[this.i].classList.remove("success")
               this.errorsCount++;
               this.errorsTable.push(this.errorsCount);
-              if (this.errorsTable.length >= 10) {
+              if (this.errorsTable.length >= 15) {
                 this.recommencer = true;
               }
             }
@@ -146,10 +144,7 @@ export class PlayCitComponent implements OnInit {
     this.subscription.unsubscribe();
     setTimeout(() => {
       this.spans = document.querySelectorAll(".lettre");
-      let input: any = document.getElementById('input');
-      if (input) {
-        input.defaultChecked = true;
-      }
+      this.textInput?.focus();
     }, 100);
   }
   restart(){
@@ -170,6 +165,27 @@ export class PlayCitComponent implements OnInit {
     setTimeout(() => {
       this.spans = document.querySelectorAll(".lettre");
       this.typing();
+      this.textInput?.focus();
+    }, 100);
+  }
+  commencer(){
+    this.errorsTable = [];
+    this.container.scrollTop = 0;
+    this.speed = 0;
+    this.precision = 0;
+    this.i = 0;
+    this.u = 0;
+    this.entered = "";
+    this.errorsCount = 0;
+    this.count = 0;
+    this.typeCount = 0;
+    this.subscription.unsubscribe();
+    this.service.verifyCit();
+    this.selectedCitation = this.service.selectedCitation;
+    this.recommencer = false;
+    setTimeout(() => {
+      this.spans = document.querySelectorAll(".lettre");
+      this.textInput?.focus();
     }, 100);
   }
 }

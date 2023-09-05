@@ -22,6 +22,7 @@ export class PlaySynopComponent implements OnInit, AfterViewInit {
   recommencer: boolean = false;
   lose: boolean = false;
   success: boolean = false;
+  play: boolean = false;
   textInput!: HTMLElement | null;
   userKeydown!: Observable<InputEvent>;
   subscription!: any;
@@ -77,7 +78,7 @@ export class PlaySynopComponent implements OnInit, AfterViewInit {
               this.spans[this.i].classList.remove("success")
               this.errorsCount++;
               this.errorsTable.push(this.errorsCount);
-              if (this.errorsTable.length >= 10) {
+              if (this.errorsTable.length >= 15) {
                 this.recommencer = true;
               }
             }
@@ -185,6 +186,26 @@ export class PlaySynopComponent implements OnInit, AfterViewInit {
       this.spans = document.querySelectorAll(".lettre");
       this.typing();
     this.textInput?.focus();
+    }, 100);
+  }
+  commencer(){
+    this.errorsTable = [];
+    this.container.scrollTop = 0;
+    this.speed = 0;
+    this.precision = 0;
+    this.i = 0;
+    this.u = 0;
+    this.entered = "";
+    this.errorsCount = 0;
+    this.count = 0;
+    this.typeCount = 0;
+    this.subscription.unsubscribe();
+    this.service.verifyCit();
+    this.selectedSynopsis = this.service.selectedSynopsis;
+    this.recommencer = false;
+    setTimeout(() => {
+      this.spans = document.querySelectorAll(".lettre");
+      this.textInput?.focus();
     }, 100);
   }
 }
