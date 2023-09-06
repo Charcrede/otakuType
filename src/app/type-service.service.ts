@@ -1,16 +1,20 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { SYNOPSIS } from './mockOtaku_second';
 import { Citations, Synopsis } from './otaku';
-import { CITATIONS } from "./mockOtaku";
+import { ARCADES, CITATIONS } from "./mockOtaku";
 import { NgModel } from '@angular/forms'
 import { ThisReceiver } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
 })
-export class TypeServiceService {
+export class TypeServiceService implements OnInit{
 
   constructor() { }
+  ngOnInit(): void {
+    this.aleatoire(this.ArcadeTexte);
+  }
+  ArcadeTexte:string = ARCADES;
   Synopsys: Synopsis[] = SYNOPSIS.sort((a, b) => a.texte.split("").length - b.texte.split("").length);
   Citations: Citations[] = CITATIONS.sort((a, b) => a.text.split("").length - b.text.split("").length);
   selectedSynopsis!: Synopsis;
@@ -22,6 +26,8 @@ export class TypeServiceService {
   image!: string;
   imageCitation!: string;
   sentence!: string[];
+  listeRandom : string[] = [];
+  ArcadeTable!: string[][];
   entered!: any;
   i: number = 0;
   u: number = 0;
@@ -40,7 +46,14 @@ export class TypeServiceService {
     this.words = tab2;
     this.image = this.selectedSynopsis.url;
   }
-
+  // displayArcade(){
+  //   let tab1 = this.aleatoire(this.ArcadeTexte);
+  //   let tab2 = [];
+  //   for (let i = 0; i < tab1.length; i++) {
+  //     tab2.push(tab1[i].split(""));
+  //   }
+  //   return this.ArcadeTable = tab2;
+  // }
   getCitations(indice: number) {
     this.selectedCIndice = indice;
     this.selectedCitation = this.Citations[this.selectedCIndice];
@@ -110,5 +123,19 @@ export class TypeServiceService {
       this.selectedCIndice = JSON.parse(str);
       this.getCitations(JSON.parse(str))
     }
+  }
+  aleatoire(str:string) {
+    let listeCop: string[][] = [] ;
+    let tab = this.ArcadeTexte.split(" ");
+    tab.forEach(el => {
+      listeCop.push(el.split(""));
+    });
+      for (let i = listeCop.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [listeCop[i], listeCop[j]] = [listeCop[j], listeCop[i]];
+      }
+      console.log(listeCop);
+      
+      return listeCop;
   }
 }
