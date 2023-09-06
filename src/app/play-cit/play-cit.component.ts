@@ -132,23 +132,6 @@ export class PlayCitComponent implements OnInit {
       return `0${num}`
     }
   }
-  rebegin() {
-    clearInterval(this.intervalId);
-    this.activeTimer = 0;
-    this.speed = 0;
-    this.precision = 0;
-    this.i = 0;
-    this.selectedCitation = this.service.selectedCitation;
-    this.u = 0;
-    this.entered = "";
-    this.errorsCount = 0;
-    this.count = 0;
-    this.typeCount = 0;
-    this.subscription.unsubscribe();
-    setTimeout(() => {
-      this.spans = document.querySelectorAll(".lettre");
-    }, 100);
-  }
   restart() {
     clearInterval(this.intervalId);
     this.errorsTable = [];

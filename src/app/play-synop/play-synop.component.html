@@ -26,7 +26,7 @@
                 <span>{{precision}}%</span>
             </div>
             <div>
-                <button class="suivant" (click)="service.prevSynopsis(); rebegin()"><span class="fas fa-backward"></span></button>
+                <button class="suivant" (click)="service.prevSynopsis(); commencer()"><span class="fas fa-backward"></span></button>
             </div>
             <div>
                 <button class="suivant" (click)=" commencer()"><span class="fas fa-redo"></span></button>
@@ -35,7 +35,7 @@
                 <button class="suivant" (click)="pause()"><span [ngClass]="{'fa-play': play, 'fa-pause': !play}" class="fa-solid"></span></button>
             </div>
             <div>
-                <button class="suivant" (click)="service.nextSynopsis();rebegin()"><span class="fas fa-forward"></span></button>
+                <button class="suivant" (click)="service.nextSynopsis();commencer()"><span class="fas fa-forward"></span></button>
             </div>
         </div>
     </div>
