@@ -17,6 +17,9 @@
                     <p class="shippai" *ngIf="speed < 30">shippai</p>
                     <p class="seiko" *ngIf="speed >= 30">seiko</p>
                 </div>
+                <div class="shippaiSeiko pausePlay" [ngClass]="{'opacity0':play, 'opacity5':!play}">
+                    <span class="fa-solid" [ngClass]="{'fa-circle-pause':play, 'fa-circle-play':!play}"></span>
+                </div>
         </div>
         <p class="rebeginP" *ngIf="recommencer"><button class="rebegin" (click)="restart()">Trop d'erreur, veuillez recommencer</button></p>
         <div class="scoreSuivant">
@@ -31,7 +34,7 @@
                 <button class="suivant" (click)=" commencer()"><span class="fas fa-redo"></span></button>
             </div>
             <div>
-                <button class="suivant" (click)="service.nextCitation(); rebegin(); play=!play"><span [ngClass]="{'fa-play': play, 'fa-pause': !play}" class="fa-solid"></span></button>
+                <button class="suivant" (click)=" pause()"><span [ngClass]="{'fa-play': play, 'fa-pause': !play}" class="fa-solid"></span></button>
             </div>
             <div>
                 <button class="suivant" (click)="service.nextCitation(); rebegin()"><span class="fas fa-forward"></span></button>

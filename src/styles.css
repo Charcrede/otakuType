@@ -158,6 +158,18 @@ span.lettre{
     position: relative;
     z-index: 254;
 }
+.shippaiSeiko.pausePlay{
+    background: none;
+    color: #000;
+    opacity: .5;
+    transition: 1s;
+}
+.pausePlay.opacity0{
+    opacity: 0;
+}
+.pausePlay.opacity5{
+    opacity: .5;
+}
 .titre_nom{
     width: 60%;
     margin-inline: auto;

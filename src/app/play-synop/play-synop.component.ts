@@ -34,6 +34,7 @@ export class PlaySynopComponent implements OnInit, AfterViewInit {
   typeCount = 0;
   intervalId!: any;
   selectedSynopsis = this.service.selectedSynopsis;
+  activeTimer: number = 0;
   constructor(public service: TypeServiceService) { }
   ngOnInit(): void {
     this.service.verifySynop();
@@ -54,6 +55,7 @@ export class PlaySynopComponent implements OnInit, AfterViewInit {
   @ViewChild('texte') texte !: ElementRef;
   typing() {
     if (this.i < this.selectedSynopsis.texte.split("").length-1) {
+      this.play = true;
       this.container = this.texte.nativeElement;
       this.textInput = document.getElementById("input");
       console.dir(this.textInput)
@@ -62,8 +64,9 @@ export class PlaySynopComponent implements OnInit, AfterViewInit {
         this.sentence = this.selectedSynopsis.texte.split("");
       }
       this.subscription = this.userKeydown.subscribe((e) => {
-        this.typeCount++
-        if (this.typeCount === 1) {
+        this.typeCount++;
+        this.activeTimer++;
+        if (this.activeTimer === 1) {
           this.timing();
         }
         let newTabSentence = this.entered.split("");
@@ -156,6 +159,7 @@ export class PlaySynopComponent implements OnInit, AfterViewInit {
     this.errorsCount = 0;
     this.count = 0;
     this.typeCount = 0;
+    this.activeTimer = 0;
     this.recommencer = false;
     this.subscription.unsubscribe();
     setTimeout(() => {
@@ -173,6 +177,7 @@ export class PlaySynopComponent implements OnInit, AfterViewInit {
     this.precision = 0;
     this.i = 0;
     this.selectedSynopsis = this.service.selectedSynopsis;
+    this.activeTimer = 0;
     this.u = 0;
     this.entered = "";
     this.errorsCount = 0;
@@ -203,9 +208,18 @@ export class PlaySynopComponent implements OnInit, AfterViewInit {
     this.service.verifyCit();
     this.selectedSynopsis = this.service.selectedSynopsis;
     this.recommencer = false;
+    this.activeTimer = 0;
     setTimeout(() => {
       this.spans = document.querySelectorAll(".lettre");
       this.textInput?.focus();
     }, 100);
+  }
+  pause(){
+    if (this.i < this.selectedSynopsis.texte.split("").length - 1) {
+      clearInterval(this.intervalId);
+      this.activeTimer = 0;
+      this.textInput?.focus();
+      this.play = false;
+    }
   }
 }
