@@ -11,6 +11,7 @@ import { PlaySynopComponent } from './play-synop/play-synop.component';
 import { PlayCitComponent } from './play-cit/play-cit.component';
 import { RoutingModuleModule } from './routing-module/routing-module.module';
 import { HomeComponent } from './home/home.component';
+import { ArcadeComponent } from './arcade/arcade.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HomeComponent } from './home/home.component';
     SynopsisComponent,
     PlaySynopComponent,
     PlayCitComponent,
-    HomeComponent
+    HomeComponent,
+    ArcadeComponent
   ],
   imports: [
     BrowserModule,

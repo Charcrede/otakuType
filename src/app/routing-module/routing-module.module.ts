@@ -6,6 +6,7 @@ import { PlayCitComponent } from '../play-cit/play-cit.component';
 import { PlaySynopComponent } from '../play-synop/play-synop.component';
 import { SynopsisComponent } from '../synopsis/synopsis.component';
 import { RouterModule, Routes } from '@angular/router';
+import { ArcadeComponent } from '../arcade/arcade.component';
 const typeRoute: Routes = [
   {
     path : 'acceuil',
@@ -20,8 +21,12 @@ const typeRoute: Routes = [
     component: PlayCitComponent,
   },
   {
-    path : 'synopsis',
-    component: SynopsisComponent,
+  path : 'synopsis',
+  component: SynopsisComponent,
+  },
+  {
+  path : 'arcade',
+  component: ArcadeComponent,
   },
   {
     path : 'synopsis-play',

@@ -146,11 +146,12 @@ export class PlayCitComponent implements OnInit {
     this.entered = "";
     this.errorsCount = 0;
     this.count = 0;
-    this.typeCount = 0;
+    this.typeCount =0;
     this.subscription.unsubscribe();
     this.service.verifyCit();
     this.selectedCitation = this.service.selectedCitation;
     this.recommencer = false;
+    this.play = true;
     this.activeTimer = 0;
     setTimeout(() => {
       this.spans = document.querySelectorAll(".lettre");
@@ -161,6 +162,7 @@ export class PlayCitComponent implements OnInit {
   commencer() {
     clearInterval(this.intervalId);
     this.errorsTable = [];
+    this.play = true;
     this.container.scrollTop = 0;
     this.speed = 0;
     this.precision = 0;
