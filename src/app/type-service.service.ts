@@ -71,6 +71,10 @@ export class TypeServiceService {
       this.getSynopsis(this.selectedSIndice);
     }
   }
+  previousSynopsis() {
+    this.selectedSynopsis = this.Synopsys[this.selectedSIndice--];
+    this.getSynopsis(this.selectedSIndice);
+  }
   nextCitation() {
     if (this.selectedCIndice<this.Citations.length-1) {
       this.selectedCitation = this.Citations[this.selectedCIndice++];
@@ -88,6 +92,10 @@ export class TypeServiceService {
       this.selectedCitation = this.Citations[this.selectedCIndice];
       this.getCitations(this.selectedCIndice);
     }
+  }
+  previousCitation() {
+    this.selectedCitation = this.Citations[this.selectedCIndice--];
+    this.getCitations(this.selectedCIndice);
   }
   verifySynop() {
     let str = (this.monStockage.getItem("Synop"));

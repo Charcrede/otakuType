@@ -31,6 +31,9 @@ export class PlayCitComponent implements OnInit {
   container!: HTMLElement;
   recommencer: boolean = false;
   intervalId!: any;
+  // errorsTable : number[] = [];
+  // container!: HTMLElement;
+  // recommencer: boolean = false;
   selectedCitation = this.service.selectedCitation;
   constructor(public service: TypeServiceService) { }
   ngOnInit(): void {

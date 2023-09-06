@@ -5,11 +5,19 @@
     </div>
     <div class="relative">
         <div class="texte"
-            style="background:linear-gradient(to bottom right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),url('{{service.selectedSynopsis.url}}')repeat fixed center;" #texte>
+            style="background:linear-gradient(to bottom right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),url('{{service.selectedSynopsis.url}}')repeat fixed center;"
+            #texte>
             <div *ngFor=" let word of service.words" class="mot">
                 <span *ngFor="let letter of word" class="lettre">{{letter}}</span>
                 <span class="lettre">&nbsp;&nbsp;</span>
             </div>
+            <input type="text" autofocus class="input" *ngIf="!recommencer" (input)="typing()" id="input"
+                [(ngModel)]="entered" name="entered" autocomplete="off" autocapitalize="off" autocorrect="off">
+            <div class="shippaiSeiko" *ngIf="i >= selectedSynopsis.texte.split('').length">
+                <p class="shippai" *ngIf="speed < 30">shippai
+                    <button (click)="restart()">Recommencer</button>
+                <p>
+                <p class="seiko" *ngIf="speed >= 30">seiko</p>
                 <input type="text" (click)="dir()" class="input" *ngIf="!recommencer" (input)="typing()" id="input" [(ngModel)]="entered" name="entered" autocomplete="off" autocapitalize="off" autocorrect="off">
                 <div class="shippaiSeiko" *ngIf="i >= selectedSynopsis.texte.split('').length">
                     <p class="shippai" *ngIf="speed < 30">shippai</p>
@@ -19,9 +27,11 @@
                     <span class="fa-solid" [ngClass]="{'fa-circle-pause':play, 'fa-circle-play':!play}"></span>
                 </div>
             </div>
-            <p class="rebeginP" *ngIf="recommencer"><button class="rebegin" (click)="restart()">Trop d'erreur, veuillez recommencer</button></p>
-            <div class="scoreSuivant">
-                <div class="score">
+        </div>
+        <p class="rebeginP" *ngIf="recommencer"><button class="rebegin" (click)="restart()">Trop d'erreur, veuillez
+                recommencer</button></p>
+        <div class="scoreSuivant">
+            <div class="score">
                 <span>{{speed}}MPM</span>
                 <span>{{precision}}%</span>
             </div>
@@ -37,6 +47,6 @@
             <div>
                 <button class="suivant" (click)="service.nextSynopsis();commencer()"><span class="fas fa-forward"></span></button>
             </div>
-        </div>
+        </div> 
     </div>
 </div>
