@@ -293,7 +293,7 @@ figcaption button {
     left: 0;
     bottom: 15%;
     right: 0;
-    font-size: 10rem;
+    font-size: 6rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -302,12 +302,12 @@ figcaption button {
 }
 .shippai{
     color: red;
-    position: absolute;
+    /* position: absolute; */
     transition: all 0.7s;
 }
 .seiko{
     color: rgb(33, 230, 33);
-    position: absolute;
+    /* position: absolute; */
     transition: all 0.7s;
 }
 .rebeginP{
