@@ -24,6 +24,9 @@
                     <p class="rebeginP" *ngIf="recommencer"><button class="rebegin" (click)="restart()">Trop d'erreur, veuillez
                         recommencer</button></p>
                 </div>
+                <div class="shippaiSeiko pausePlay" [ngClass]="{'opacity0':play, 'opacity5':!play}">
+                    <span class="fa-solid" [ngClass]="{'fa-circle-pause':play, 'fa-circle-play':!play}"></span>
+                </div>
         </div>
         <p class="rebeginP" *ngIf="recommencer"><button class="rebegin" (click)="restart()">Trop d'erreur, veuillez recommencer</button></p>
         <div class="scoreSuivant">
@@ -32,7 +35,16 @@
                 <span>{{precision}}%</span>
             </div>
             <div>
-                <button class="suivant" (click)="service.previousCitation(); rebegin()">Suivant</button>
+                <button class="suivant" (click)="service.prevCitation(); rebegin()"><span class="fas fa-backward"></span></button>
+            </div>
+            <div>
+                <button class="suivant" (click)=" commencer()"><span class="fas fa-redo"></span></button>
+            </div>
+            <div>
+                <button class="suivant" (click)=" pause()"><span [ngClass]="{'fa-play': play, 'fa-pause': !play}" class="fa-solid"></span></button>
+            </div>
+            <div>
+                <button class="suivant" (click)="service.nextCitation(); rebegin()"><span class="fas fa-forward"></span></button>
             </div>
             <div>
                 <button class="suivant" [disabled] ="service.selectedSIndice === 1" (click)="service.nextCitation(); rebegin()">Précédent</button>

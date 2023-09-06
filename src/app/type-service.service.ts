@@ -54,16 +54,44 @@ export class TypeServiceService {
     this.imageCitation = this.selectedCitation.url;
   }
   nextSynopsis() {
-    this.selectedSynopsis = this.Synopsys[this.selectedSIndice++];
-    this.getSynopsis(this.selectedSIndice);
+    if (this.selectedSIndice<this.Synopsys.length-1) {
+      this.selectedSynopsis = this.Synopsys[this.selectedSIndice++];
+      this.getSynopsis(this.selectedSIndice);
+    }else{
+      this.selectedSynopsis = this.Synopsys[this.selectedSIndice];
+      this.getSynopsis(this.selectedSIndice);
+    }
+  }
+  prevSynopsis() {
+    if (this.selectedSIndice>0) {
+      this.selectedSynopsis = this.Synopsys[this.selectedSIndice--];
+      this.getSynopsis(this.selectedSIndice);
+    }else{
+      this.selectedSynopsis = this.Synopsys[this.selectedSIndice];
+      this.getSynopsis(this.selectedSIndice);
+    }
   }
   previousSynopsis() {
     this.selectedSynopsis = this.Synopsys[this.selectedSIndice--];
     this.getSynopsis(this.selectedSIndice);
   }
   nextCitation() {
-    this.selectedCitation = this.Citations[this.selectedCIndice++];
-    this.getCitations(this.selectedCIndice);
+    if (this.selectedCIndice<this.Citations.length-1) {
+      this.selectedCitation = this.Citations[this.selectedCIndice++];
+      this.getCitations(this.selectedCIndice);
+    }else{
+      this.selectedCitation = this.Citations[this.selectedCIndice];
+      this.getCitations(this.selectedCIndice);
+    }
+  }
+  prevCitation() {
+    if (this.selectedCIndice>0) {
+      this.selectedCitation = this.Citations[this.selectedCIndice--];
+      this.getCitations(this.selectedCIndice);
+    }else{
+      this.selectedCitation = this.Citations[this.selectedCIndice];
+      this.getCitations(this.selectedCIndice);
+    }
   }
   previousCitation() {
     this.selectedCitation = this.Citations[this.selectedCIndice--];

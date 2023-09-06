@@ -22,11 +22,14 @@ export class PlayCitComponent implements OnInit {
   subscription!: any;
   speed: number = 0;
   time: string = "00:00";
+  play: boolean = true;
   precision: number = 0;
   typeCount = 0;
+  seen: boolean = false;
+  activeTimer: number = 0;
   errorsTable: number[] = [];
   container!: HTMLElement;
-  recommencer:boolean =  false;
+  recommencer: boolean = false;
   intervalId!: any;
   // errorsTable : number[] = [];
   // container!: HTMLElement;
@@ -38,16 +41,14 @@ export class PlayCitComponent implements OnInit {
     this.selectedCitation = this.service.selectedCitation;
     setTimeout(() => {
       this.spans = document.querySelectorAll(".lettre");
-      let input: any = document.getElementById('input');
-      if (input) {
-        input.defaultChecked = true;
-      }
       this.typing();
+      this.textInput?.focus();
     }, 100);
   }
   @ViewChild('texte') texte !: ElementRef;
   typing() {
     if (this.i < this.selectedCitation.text.split("").length - 1) {
+      this.play = true;
       this.container = this.texte.nativeElement;
       this.textInput = document.getElementById("input");
       if (this.textInput && this.selectedCitation) {
@@ -55,8 +56,9 @@ export class PlayCitComponent implements OnInit {
         this.sentence = this.selectedCitation.text.split("");
       }
       this.subscription = this.userKeydown.subscribe((e) => {
-        this.typeCount++
-        if (this.typeCount === 1) {
+        this.activeTimer++;
+        this.typeCount++;
+        if (this.activeTimer === 1) {
           this.timing();
         }
         let newTabSentence = this.entered.split("");
@@ -71,7 +73,7 @@ export class PlayCitComponent implements OnInit {
               this.spans[this.i].classList.remove("success")
               this.errorsCount++;
               this.errorsTable.push(this.errorsCount);
-              if (this.errorsTable.length >= 10) {
+              if (this.errorsTable.length >= 15) {
                 this.recommencer = true;
               }
             }
@@ -85,9 +87,6 @@ export class PlayCitComponent implements OnInit {
           }
           if ((this.spans[this.i].offsetTop + ((this.spans[this.i].offsetHeight * 2)) > this.container.offsetHeight) && this.spans[this.i].offsetTop > this.spans[this.i - 1].offsetTop) {
             this.container.scrollTop = this.container.scrollTop + this.spans[this.i].offsetHeight + 25;
-            console.log(this.container.scrollTop);
-            console.log(this.spans[this.i].offsetHeight + 25);
-
           }
           this.spans[this.u].classList.add("current");
         }
@@ -116,6 +115,7 @@ export class PlayCitComponent implements OnInit {
     this.intervalId = setInterval(() => {
       if (this.i > 6 && this.typeCount > this.errorsCount) {
         this.speed = Math.ceil((this.typeCount - (this.errorsCount * 4)) / (this.count / 10));
+        console.log(this.speed);
         if (this.speed < 0) {
           this.speed = 0;
         } else {
@@ -137,6 +137,7 @@ export class PlayCitComponent implements OnInit {
   }
   rebegin() {
     clearInterval(this.intervalId);
+    this.activeTimer = 0;
     this.speed = 0;
     this.precision = 0;
     this.i = 0;
@@ -149,13 +150,10 @@ export class PlayCitComponent implements OnInit {
     this.subscription.unsubscribe();
     setTimeout(() => {
       this.spans = document.querySelectorAll(".lettre");
-      let input: any = document.getElementById('input');
-      if (input) {
-        input.defaultChecked = true;
-      }
     }, 100);
   }
-  restart(){
+  restart() {
+    clearInterval(this.intervalId);
     this.errorsTable = [];
     this.container.scrollTop = 0;
     this.speed = 0;
@@ -170,9 +168,41 @@ export class PlayCitComponent implements OnInit {
     this.service.verifyCit();
     this.selectedCitation = this.service.selectedCitation;
     this.recommencer = false;
+    this.activeTimer = 0;
     setTimeout(() => {
       this.spans = document.querySelectorAll(".lettre");
       this.typing();
+      this.textInput?.focus();
     }, 100);
+  }
+  commencer() {
+    clearInterval(this.intervalId);
+    this.errorsTable = [];
+    this.container.scrollTop = 0;
+    this.speed = 0;
+    this.precision = 0;
+    this.i = 0;
+    this.u = 0;
+    this.entered = "";
+    this.errorsCount = 0;
+    this.count = 0;
+    this.typeCount = 0;
+    this.subscription.unsubscribe();
+    this.service.verifyCit();
+    this.selectedCitation = this.service.selectedCitation;
+    this.recommencer = false;
+    this.activeTimer = 0;
+    setTimeout(() => {
+      this.spans = document.querySelectorAll(".lettre");
+      this.textInput?.focus();
+    }, 100);
+  }
+  pause() {
+    if (this.i < this.selectedCitation.text.split("").length - 1) {
+      clearInterval(this.intervalId);
+      this.activeTimer = 0;
+      this.textInput?.focus();
+      this.play = false;
+    }
   }
 }
