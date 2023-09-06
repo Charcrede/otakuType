@@ -146,30 +146,6 @@ export class PlaySynopComponent implements OnInit, AfterViewInit {
       return `0${num}`
     }
   }
-  rebegin() {
-    this.textInput?.focus();
-    clearInterval(this.intervalId);
-    this.speed = 0;
-    this.precision = 0;
-    this.i = 0;
-    this.container.scrollTop = 0;
-    this.selectedSynopsis = this.service.selectedSynopsis;
-    this.u = 0;
-    this.entered = "";
-    this.errorsCount = 0;
-    this.count = 0;
-    this.typeCount = 0;
-    this.activeTimer = 0;
-    this.recommencer = false;
-    this.subscription.unsubscribe();
-    setTimeout(() => {
-      this.spans = document.querySelectorAll(".lettre");
-      let input: any = document.getElementById('input');
-      if (input) {
-        input.defaultChecked = true;
-      }
-    }, 100);
-  }
   restart(){
     this.errorsTable = [];
     this.container.scrollTop = 0;
