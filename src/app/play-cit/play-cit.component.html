@@ -14,18 +14,22 @@
             </div>
                 <input type="text" autofocus *ngIf="!recommencer" class="input" (input)="typing()" id="input" [(ngModel)]="entered" name="entered" autocomplete="off" autocapitalize="off" autocorrect="off">
                 <div class="shippaiSeiko" *ngIf="i >= selectedCitation.text.split('').length">
-                    <div class="d-flex justify-content-center align-items-center">
-                        <div><img src="../../assets/anya-smuh-spyxfamily.png" class="rounded-circle w-50" alt=""></div>
-                        <p class="shippai" *ngIf="speed < 30">shippai</p>
+                    <div class="d-flex justify-content-center align-items-center flex-column" *ngIf="speed >= 30">
+                        <img src="../../assets/pngegg (4).png" class="rounded-circle w-25" alt="">
+                        <!-- <p class="shippai" *ngIf="speed < 30">shippai</p> -->
+                        <div>
+                            <p class="seiko" >seiko</p>
+                        </div>
                     </div>
-                    <div>
-                        <p class="seiko" *ngIf="speed >= 30">seiko</p>
+                    <div class="d-flex justify-content-center align-items-center flex-column" *ngIf="speed < 30">
+                        <img src="../../assets/anya-smuh-spyxfamily.png" class="rounded-circle w-25" alt="">
+                        <!-- <p class="shippai" *ngIf="speed < 30">shippai</p> -->
+                        <div>
+                            <p class="shippai">shippai</p>
+                        </div>
                     </div>
                     <p class="rebeginP" *ngIf="recommencer"><button class="rebegin" (click)="restart()">Trop d'erreur, veuillez
                         recommencer</button></p>
-                </div>
-                <div class="shippaiSeiko pausePlay" [ngClass]="{'opacity0':play, 'opacity5':!play}">
-                    <span class="fa-solid" [ngClass]="{'fa-circle-pause':play, 'fa-circle-play':!play}"></span>
                 </div>
         </div>
         <p class="rebeginP" *ngIf="recommencer"><button class="rebegin" (click)="restart()">Trop d'erreur, veuillez recommencer</button></p>
