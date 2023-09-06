@@ -163,6 +163,7 @@ export class PlaySynopComponent implements OnInit, AfterViewInit {
     this.service.verifySynop();
     this.selectedSynopsis = this.service.selectedSynopsis;
     this.recommencer = false;
+    this.play = true;
     setTimeout(() => {
       this.spans = document.querySelectorAll(".lettre");
       this.typing();
@@ -184,6 +185,7 @@ export class PlaySynopComponent implements OnInit, AfterViewInit {
     this.service.verifyCit();
     this.selectedSynopsis = this.service.selectedSynopsis;
     this.recommencer = false;
+    this.play = true;
     this.activeTimer = 0;
     setTimeout(() => {
       this.spans = document.querySelectorAll(".lettre");
