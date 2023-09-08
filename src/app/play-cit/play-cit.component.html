@@ -12,7 +12,7 @@
                 <span *ngFor="let letter of word" class="lettre">{{letter}}</span>
                 <span class="lettre">&nbsp;&nbsp;</span>
             </div>
-                <input type="text" autofocus *ngIf="!recommencer" class="input" (input)="typing()" id="input" [(ngModel)]="entered" name="entered" autocomplete="off" autocapitalize="off" autocorrect="off">
+                <input type="text" autofocus *ngIf="!recommencer || seeInput" class="input" (input)="typing()" id="input" [(ngModel)]="entered" name="entered" autocomplete="off" autocapitalize="off" autocorrect="off">
                 <div class="shippaiSeiko" *ngIf="i >= selectedCitation.text.split('').length">
                     <div class="d-flex justify-content-center align-items-center flex-column" *ngIf="speed >= 30">
                         <img src="../../assets/pngegg (4).png" class="rounded-circle w-25" alt="">
@@ -30,6 +30,10 @@
                     </div>
                     <p class="rebeginP" *ngIf="recommencer"><button class="rebegin" (click)="restart()">Trop d'erreur, veuillez
                         recommencer</button></p>
+                </div>
+                <div class="shippaiSeiko pausePlay" [ngClass]="{'opacity0' : play, 'opacity5' : !play}">
+                    <div [ngClass]="{'fa-circle-pause' : play, 'fa-circle-play':!play}" class="fa-solid"></div>
+                    <p>Continuez à saisir pour reprendre</p>
                 </div>
         </div>
         <p class="rebeginP" *ngIf="recommencer"><button class="rebegin" (click)="restart()">Trop d'erreur, veuillez recommencer</button></p>

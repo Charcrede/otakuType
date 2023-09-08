@@ -33,6 +33,7 @@ export class PlaySynopComponent implements OnInit, AfterViewInit {
   container!: HTMLElement;
   typeCount = 0;
   intervalId!: any;
+  seeInput = true;
   selectedSynopsis = this.service.selectedSynopsis;
   activeTimer: number = 0;
   constructor(public service: TypeServiceService) { }
@@ -54,7 +55,7 @@ export class PlaySynopComponent implements OnInit, AfterViewInit {
   }
   @ViewChild('texte') texte !: ElementRef;
   typing() {
-    if (this.i < this.selectedSynopsis.texte.split("").length-1) {
+    if (this.i < this.selectedSynopsis.texte.split("").length-100) {
       this.play = true;
       this.container = this.texte.nativeElement;
       this.textInput = document.getElementById("input");
@@ -119,7 +120,7 @@ export class PlaySynopComponent implements OnInit, AfterViewInit {
           clearInterval(this.intervalId);
         }
       })
-    }
+    }else{this.seeInput =false}
   }
   timing() {
     let min: number;
@@ -157,6 +158,7 @@ export class PlaySynopComponent implements OnInit, AfterViewInit {
     this.u = 0;
     this.entered = "";
     this.errorsCount = 0;
+    this.seeInput = true;
     this.count = 0;
     this.typeCount = 0;
     this.subscription.unsubscribe();
@@ -179,10 +181,11 @@ export class PlaySynopComponent implements OnInit, AfterViewInit {
     this.u = 0;
     this.entered = "";
     this.errorsCount = 0;
+    this.seeInput = true;
     this.count = 0;
     this.typeCount = 0;
     this.subscription.unsubscribe();
-    this.service.verifyCit();
+    this.service.verifySynop();
     this.selectedSynopsis = this.service.selectedSynopsis;
     this.recommencer = false;
     this.play = true;

@@ -13,6 +13,7 @@ export class PlayCitComponent implements OnInit {
   i: number = 0;
   count: number = 0;
   u: number = 0;
+  seeInput = true;
   errorsCount: number = 0;
   spans!: any;
   lose: boolean = false;
@@ -107,7 +108,7 @@ export class PlayCitComponent implements OnInit {
           clearInterval(this.intervalId)
         }
       })
-    }
+    }else{this.seeInput = false}
   }
   timing() {
     let min: number;
@@ -145,6 +146,7 @@ export class PlayCitComponent implements OnInit {
     this.u = 0;
     this.entered = "";
     this.errorsCount = 0;
+    this.seeInput = true;
     this.count = 0;
     this.typeCount =0;
     this.subscription.unsubscribe();
@@ -170,6 +172,7 @@ export class PlayCitComponent implements OnInit {
     this.u = 0;
     this.entered = "";
     this.errorsCount = 0;
+    this.seeInput = true;
     this.count = 0;
     this.typeCount = 0;
     this.subscription.unsubscribe();
