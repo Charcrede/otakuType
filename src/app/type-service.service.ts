@@ -127,15 +127,16 @@ export class TypeServiceService implements OnInit{
   aleatoire(str:string) {
     let listeCop: string[][] = [] ;
     let tab = this.ArcadeTexte.split(" ");
-    tab.forEach(el => {
-      listeCop.push(el.split(""));
-    });
+    tab.forEach((el, u) => {
+        listeCop.push(el.split(""));
+        listeCop.push();
+      });
+      console.log(listeCop);
+
       for (let i = listeCop.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [listeCop[i], listeCop[j]] = [listeCop[j], listeCop[i]];
       }
-      console.log(listeCop);
-      
       return listeCop;
   }
 }
