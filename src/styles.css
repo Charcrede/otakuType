@@ -182,7 +182,7 @@ span.lettre{
     border: 1px solid rgba(255, 255, 255, 0.253);
     font-weight: 600;
     padding-inline: 10px;
-    background-color: none;
+    background: none;
     color: #fff;
 }
 .lose{

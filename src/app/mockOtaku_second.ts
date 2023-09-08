@@ -1,4 +1,4 @@
-import { Citations, Synopsis } from "./otaku";
+import { Synopsis } from "./otaku";
 
 export const SYNOPSIS: Synopsis[] = [
     {
