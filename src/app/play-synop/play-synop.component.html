@@ -13,20 +13,24 @@
             </div>
             <input type="text" autofocus class="input" *ngIf="!recommencer" (input)="typing()" id="input"
                 [(ngModel)]="entered" name="entered" autocomplete="off" autocapitalize="off" autocorrect="off">
-            <div class="shippaiSeiko" *ngIf="i >= selectedSynopsis.texte.split('').length">
-                <p class="shippai" *ngIf="speed < 30">shippai
-                    <button (click)="restart()">Recommencer</button>
-                <p>
-                <p class="seiko" *ngIf="speed >= 30">seiko</p>
-                <input type="text" (click)="dir()" class="input" *ngIf="!recommencer" (input)="typing()" id="input" [(ngModel)]="entered" name="entered" autocomplete="off" autocapitalize="off" autocorrect="off">
                 <div class="shippaiSeiko" *ngIf="i >= selectedSynopsis.texte.split('').length">
-                    <p class="shippai" *ngIf="speed < 30">shippai</p>
-                    <p class="seiko" *ngIf="speed >= 30">seiko</p>
+                    <div class="d-flex justify-content-center align-items-center flex-column" *ngIf="speed >= 30">
+                        <img src="../../assets/pngegg (4).png" class="rounded-circle w-25" alt="">
+                        <!-- <p class="shippai" *ngIf="speed < 30">shippai</p> -->
+                        <div>
+                            <p class="seiko" >seiko</p>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center align-items-center flex-column" *ngIf="speed < 30">
+                        <img src="../../assets/anya-smuh-spyxfamily.png" class="rounded-circle w-25" alt="">
+                        <!-- <p class="shippai" *ngIf="speed < 30">shippai</p> -->
+                        <div>
+                            <p class="shippai">shippai</p>
+                        </div>
+                    </div>
+                    <p class="rebeginP" *ngIf="recommencer"><button class="rebegin" (click)="restart()">Trop d'erreur, veuillez
+                        recommencer</button></p>
                 </div>
-                <div class="shippaiSeiko pausePlay" [ngClass]="{'opacity0':play, 'opacity5':!play}">
-                    <span class="fa-solid" [ngClass]="{'fa-circle-pause':play, 'fa-circle-play':!play}"></span>
-                </div>
-            </div>
         </div>
         <p class="rebeginP" *ngIf="recommencer"><button class="rebegin" (click)="restart()">Trop d'erreur, veuillez
                 recommencer</button></p>
