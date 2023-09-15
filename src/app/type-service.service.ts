@@ -27,7 +27,7 @@ export class TypeServiceService implements OnInit{
   imageCitation!: string;
   sentence!: string[];
   listeRandom : string[] = [];
-  ArcadeTable!: string[][];
+  ArcadeTable: string[][] = [];
   entered!: any;
   i: number = 0;
   u: number = 0;
@@ -126,17 +126,19 @@ export class TypeServiceService implements OnInit{
   }
   aleatoire(str:string) {
     let listeCop: string[][] = [] ;
+    let finalTab: string[][] = [] ;
     let tab = this.ArcadeTexte.split(" ");
     tab.forEach((el, u) => {
         listeCop.push(el.split(""));
-        listeCop.push();
       });
-      console.log(listeCop);
-
       for (let i = listeCop.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [listeCop[i], listeCop[j]] = [listeCop[j], listeCop[i]];
+        const j = Math.floor(Math.random() * (listeCop.length));
+        // [listeCop[i], listeCop[j]] = [listeCop[j], listeCop[i]];
+          finalTab.push(listeCop[j]);
+          this.ArcadeTable.push(listeCop[j]);
+          finalTab.push([' ']);
+          listeCop.splice(j,1);
       }
-      return listeCop;
+      return finalTab;
   }
 }

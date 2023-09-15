@@ -39,20 +39,20 @@ export class ArcadeComponent implements OnInit{
  chrono !:number;
  selectedCitation = this.service.selectedCitation;
  ngOnInit(): void {
-  
- }
- @ViewChild('texte') texte !: ElementRef;
- typing() {
-   if (this.i < this.ArcadeText.split("").length - 1) {
+   this.ArcadeTable = this.service.aleatoire(this.ArcadeText);
+  }
+  @ViewChild('texte') texte !: ElementRef;
+  typing() {
+    if (this.i < this.ArcadeText.split("").length - 1) {
+     this.speed = Math.ceil((this.typeCount - (this.errorsCount * 6)) / this.chrono);
      this.play = true;
      this.container = this.texte.nativeElement;
      this.textInput = document.getElementById("input");
      if (this.textInput) {
        this.userKeydown = fromEvent<InputEvent>(this.textInput, 'input');
-        this.sentence = this.ArcadeTable.flat(1);
-        console.log(this.sentence);
-        
-     }
+       this.sentence = this.ArcadeTable.flat(1);
+       console.log(this.sentence);
+      }
      this.subscription = this.userKeydown.subscribe((e) => {
        this.activeTimer++;
        this.typeCount++;
@@ -66,10 +66,6 @@ export class ArcadeComponent implements OnInit{
              this.spans[this.i].classList.add("success")
              this.spans[this.i].classList.remove("lose");
              this.errorsTable = [];
-             console.log(this.sentence);
-             console.log(newTabSentence);
-             
-             
            } else {
              this.spans[this.i].classList.add("lose", "retry")
              this.spans[this.i].classList.remove("success")
@@ -77,15 +73,15 @@ export class ArcadeComponent implements OnInit{
              this.errorsTable.push(this.errorsCount);
              if (this.errorsTable.length >= 15) {
                this.recommencer = true;
-             }
-           }
-
-           if (this.u > 0) {
-             this.spans[this.u].classList.remove("current");
-           }
-           this.i++;
-           this.u++;
-
+              }
+            }
+            
+            if (this.u > 0) {
+              this.spans[this.u].classList.remove("current");
+            }
+            this.i++;
+            this.u++;
+            
          }
          if ((this.spans[this.i].offsetTop + ((this.spans[this.i].offsetHeight * 2)) > this.container.offsetHeight) && this.spans[this.i].offsetTop > this.spans[this.i - 1].offsetTop) {
            this.container.scrollTop = this.container.scrollTop + this.spans[this.i].offsetHeight + 25;
@@ -113,7 +109,6 @@ export class ArcadeComponent implements OnInit{
  }
  selectTime(time:number){
   this.chrono = time;
-  this.ArcadeTable = this.service.aleatoire(this.ArcadeText);
   setTimeout(() => {
     this.spans = document.querySelectorAll(".lettre");
     this.typing();
@@ -125,10 +120,9 @@ export class ArcadeComponent implements OnInit{
    this.sec = 60;
    this.intervalId = setInterval(() => {
      if (this.i > 6 && this.typeCount > this.errorsCount) {
-       this.speed = Math.ceil((this.typeCount - (this.errorsCount * 4)) / (this.count / 10));
        if (this.speed < 0) {
          this.speed = 0;
-       } else {
+        } else {
          this.speed = this.speed;
        }
      }

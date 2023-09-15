@@ -9,13 +9,13 @@
         <div class="texte"
             style="background:linear-gradient(to bottom right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8))"
             #texte>
-            <div *ngFor=" let word of ArcadeTable" class="mot">
+            <div *ngFor=" let word of service.ArcadeTable" class="mot">
                 <span *ngFor="let letter of word" class="lettre">{{letter}}</span>
                 <span class="lettre">&nbsp;&nbsp;</span>
             </div>
-            <input type="text" autofocus class="input" (input)="typing()" id="input"
-                [(ngModel)]="entered" name="entered" autocomplete="off" autocapitalize="off" autocorrect="off">
-             <div class="shippaiSeiko" *ngIf="min === 0 && sec === 0">
+            <input type="text" autofocus class="input" (input)="typing()" id="input" [(ngModel)]="entered"
+                name="entered" autocomplete="off" autocapitalize="off" autocorrect="off">
+            <div class="shippaiSeiko" *ngIf="min === 0 && sec === 0">
                 <div class="d-flex justify-content-center align-items-center">
                     <div><img src="../../assets/anya-smuh-spyxfamily.png" class="rounded-circle w-50" alt=""></div>
                     <p class="shippai" *ngIf="speed < 30 && count===0">shippai</p>
@@ -27,15 +27,17 @@
                         veuillez
                         recommencer</button></p>
             </div> -->
-            <!-- <div class="shippaiSeiko pausePlay" [ngClass]="{'opacity0':play, 'opacity5':!play}">
+                <!-- <div class="shippaiSeiko pausePlay" [ngClass]="{'opacity0':play, 'opacity5':!play}">
                     <span class="fa-solid" [ngClass]="{'fa-circle-pause':play, 'fa-circle-play':!play}"></span>
                 </div> -->
+            </div>
         </div>
         <!-- <p class="rebeginP" *ngIf="recommencer"><button class="rebegin" (click)="restart()">Trop d'erreur, veuillez recommencer</button></p>-->
         <div class="scoreSuivant">
             <div class="score">
                 <span>{{time}}</span>
                 <span>{{precision}}%</span>
+                <span *ngIf="min === 0 && sec === 0">{{speed}}MPM</span>
             </div>
             <!--<div>
                 <button class="suivant" (click)="service.prevCitation(); commencer()"><span class="fas fa-backward"></span></button>
@@ -51,5 +53,5 @@
             </div>
            
         </div>-->
+        </div>
     </div>
-</div>
