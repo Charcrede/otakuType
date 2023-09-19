@@ -21,6 +21,7 @@ export class PlaySynopComponent implements OnInit, AfterViewInit {
   selectInput: boolean = false;
   recommencer: boolean = false;
   lose: boolean = false;
+  autoPause: number = 0;
   success: boolean = false;
   play: boolean = false;
   textInput!: HTMLElement | null;
@@ -57,6 +58,7 @@ export class PlaySynopComponent implements OnInit, AfterViewInit {
   typing() {
     if (this.i < this.selectedSynopsis.texte.split("").length-100) {
       this.play = true;
+      this.autoPause = 0;
       this.container = this.texte.nativeElement;
       this.textInput = document.getElementById("input");
       console.dir(this.textInput)
@@ -125,16 +127,20 @@ export class PlaySynopComponent implements OnInit, AfterViewInit {
   timing() {
     let min: number;
     let sec: number;
-    this.intervalId = setInterval(() => {
-      if (this.i > 6 && this.typeCount > this.errorsCount) {
-        this.speed = Math.ceil((this.typeCount - (this.errorsCount * 4)) / (this.count / 10));
-        if (this.speed < 0) {
-          this.speed = 0;
-        }else{
-          this.speed = this.speed;
-        }
+    if (this.i > 6 && this.typeCount > this.errorsCount) {
+      this.speed = Math.ceil((this.typeCount - (this.errorsCount * 4)) / (this.count / 10));
+      if (this.speed < 0) {
+        this.speed = 0;
+      }else{
+        this.speed = this.speed;
       }
+    }
+    this.intervalId = setInterval(() => {
       this.count++;
+      this.autoPause++;
+      if (this.autoPause >= 5) {
+        this.pause();
+      }
       sec = this.count - min * 60;
       min = Math.floor(this.count / 60);
       this.time = `${this.double(min)}:${this.double(sec)}`

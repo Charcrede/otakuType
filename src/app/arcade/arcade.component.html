@@ -1,5 +1,5 @@
 <div>
-    <div class="titre_nom">
+    <div class="titre_nom" *ngIf="!chrono">
         <span class="id">Time Chrono : </span>
         <button class="nom" (click)="selectTime(1)">1min</button>
         <button class="nom" (click)="selectTime(2)">2min</button>
@@ -23,35 +23,21 @@
                 <div>
                     <p class="seiko" *ngIf="speed >= 30 && count===0">seiko</p>
                 </div>
-                <!--<p class="rebeginP" *ngIf="recommencer"><button class="rebegin" (click)="restart()">Trop d'erreur,
-                        veuillez
-                        recommencer</button></p>
-            </div> -->
-                <!-- <div class="shippaiSeiko pausePlay" [ngClass]="{'opacity0':play, 'opacity5':!play}">
-                    <span class="fa-solid" [ngClass]="{'fa-circle-pause':play, 'fa-circle-play':!play}"></span>
-                </div> -->
             </div>
         </div>
-        <!-- <p class="rebeginP" *ngIf="recommencer"><button class="rebegin" (click)="restart()">Trop d'erreur, veuillez recommencer</button></p>-->
+        <div class="shippaiSeiko pausePlay" [ngClass]="{'opacity0' : play, 'opacity5' : !play}">
+            <div [ngClass]="{'fa-circle-pause' : play, 'fa-circle-play':!play}" class="fa-solid"></div>
+            <p>Continuez à saisir pour reprendre</p>
+        </div>
         <div class="scoreSuivant">
             <div class="score">
                 <span>{{time}}</span>
                 <span>{{precision}}%</span>
                 <span *ngIf="min === 0 && sec === 0">{{speed}}MPM</span>
             </div>
-            <!--<div>
-                <button class="suivant" (click)="service.prevCitation(); commencer()"><span class="fas fa-backward"></span></button>
-            </div>
             <div>
                 <button class="suivant" (click)=" commencer()"><span class="fas fa-redo"></span></button>
             </div>
-            <div>
-                <button class="suivant" (click)=" pause()"><span [ngClass]="{'fa-play': play, 'fa-pause': !play}" class="fa-solid"></span></button>
-            </div>
-            <div>
-                <button class="suivant" (click)="service.nextCitation(); commencer()"><span class="fas fa-forward"></span></button>
-            </div>
-           
-        </div>-->
         </div>
     </div>
+</div>

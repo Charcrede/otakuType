@@ -11,6 +11,7 @@ export class PlayCitComponent implements OnInit {
   sentence!: string[];
   entered!: string;
   i: number = 0;
+  autoPause: number = 0;
   count: number = 0;
   u: number = 0;
   seeInput = true;
@@ -50,6 +51,7 @@ export class PlayCitComponent implements OnInit {
   typing() {
     if (this.i < this.selectedCitation.text.split("").length - 1) {
       this.play = true;
+      this.autoPause = 0;
       this.container = this.texte.nativeElement;
       this.textInput = document.getElementById("input");
       if (this.textInput && this.selectedCitation) {
@@ -114,14 +116,17 @@ export class PlayCitComponent implements OnInit {
     let min: number;
     let sec: number;
     this.intervalId = setInterval(() => {
+      this.autoPause++;
       if (this.i > 6 && this.typeCount > this.errorsCount) {
         this.speed = Math.ceil((this.typeCount - (this.errorsCount * 4)) / (this.count / 10));
-        console.log(this.speed);
         if (this.speed < 0) {
           this.speed = 0;
         } else {
           this.speed = this.speed;
         }
+      }
+      if (this.autoPause >= 5) {
+        this.pause();
       }
       this.count++;
       sec = this.count - min * 60;

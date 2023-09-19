@@ -127,6 +127,7 @@ export class TypeServiceService implements OnInit{
   aleatoire(str:string) {
     let listeCop: string[][] = [] ;
     let finalTab: string[][] = [] ;
+    this.ArcadeTable = [];
     let tab = this.ArcadeTexte.split(" ");
     tab.forEach((el, u) => {
         listeCop.push(el.split(""));
