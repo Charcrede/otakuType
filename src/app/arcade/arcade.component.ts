@@ -190,10 +190,6 @@ export class ArcadeComponent implements OnInit{
      this.subscription.unsubscribe();
     }
    this.recommencer = false;
-  //  setTimeout(() => {
-  //    this.spans = document.querySelectorAll(".lettre");
-  //    this.textInput?.focus();
-  //  }, 100);
  }
  pause() {
     clearInterval(this.intervalId);
