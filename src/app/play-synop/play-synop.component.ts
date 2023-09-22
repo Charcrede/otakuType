@@ -23,7 +23,7 @@ export class PlaySynopComponent implements OnInit, AfterViewInit {
     lose: boolean = false;
     autoPause: number = 0;
     success: boolean = false;
-    play: boolean = false;
+    play: boolean = true;
     textInput!: HTMLElement | null;
     userKeydown!: Observable<InputEvent>;
     subscription!: any;
