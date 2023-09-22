@@ -198,7 +198,7 @@ export class PlaySynopComponent implements OnInit, AfterViewInit {
         setTimeout(() => {
             this.spans = document.querySelectorAll(".lettre");
             this.textInput?.focus();
-        }, 100);
+        }, 75);
     }
     pause() {
         if (this.i < this.selectedSynopsis.texte.split("").length - 1) {
