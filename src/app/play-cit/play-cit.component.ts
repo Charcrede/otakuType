@@ -78,6 +78,7 @@ export class PlayCitComponent implements OnInit {
               this.errorsTable.push(this.errorsCount);
               if (this.errorsTable.length >= 15) {
                 this.recommencer = true;
+                clearInterval(this.intervalId);
               }
             }
 
@@ -189,7 +190,7 @@ export class PlayCitComponent implements OnInit {
     setTimeout(() => {
       this.spans = document.querySelectorAll(".lettre");
       this.textInput?.focus();
-    }, 100);
+    }, 75);
   }
   pause() {
     if (this.i < this.selectedCitation.text.split("").length - 1) {

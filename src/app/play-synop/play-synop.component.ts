@@ -85,6 +85,7 @@ export class PlaySynopComponent implements OnInit, AfterViewInit {
                         this.errorsTable.push(this.errorsCount);
                         if (this.errorsTable.length >= 15) {
                             this.recommencer = true;
+                            clearInterval(this.intervalId);
                         }
                     }
 
