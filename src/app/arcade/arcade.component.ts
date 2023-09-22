@@ -104,13 +104,8 @@ export class ArcadeComponent implements OnInit{
         if (newTabSentence.length === this.ArcadeText.length - 1) {
           clearInterval(this.intervalId)
         }
-        console.log("nombre d'entrée => " + this.typeCount);
-        console.log("nombre d'erreur => " + this.errorsCount);
-        console.log("le temps => " + this.chrono);
-        
         if (this.min === 0 && this.sec === 0) {
-          this.speed = Math.ceil((this.typeCount - (this.errorsCount*4)) / (this.chrono/6));
-          console.log(this.chrono);
+          this.speed = Math.ceil( (this.entered.split("").length * 60) / (this.chrono * 5));;
           if (this.speed < 0) {
             this.speed = 0;
            } else {
@@ -178,17 +173,7 @@ export class ArcadeComponent implements OnInit{
    this.errorsCount = 0;
    this.count = 0;
    this.typeCount = 0;
-   let temps = this.service.monStockage.getItem('chrono');
-   let numTemps;
-   console.log(temps);
-   
    this.activeTimer = 0;
-   if (temps) {
-     numTemps = JSON.parse(temps);
-     this.time = "00:00";
-     this.selectTime(numTemps);
-     this.subscription.unsubscribe();
-    }
    this.recommencer = false;
  }
  pause() {

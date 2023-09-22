@@ -106,9 +106,10 @@ export class PlayCitComponent implements OnInit {
         let sensLettersLength = this.selectedCitation.text.split("").length;
         this.precision = Math.floor(((sensLettersLength - this.errorsCount) / sensLettersLength) * 100);
         this.subscription.unsubscribe();
-        if (newTabSentence.length === this.selectedCitation.text.length - 1) {
-          clearInterval(this.intervalId)
-        }
+        if (newTabSentence.length >= this.selectedCitation.text.length) {
+          clearInterval(this.intervalId);
+          this.seeInput = false;
+      }
       })
     }else{this.seeInput = false}
   }
@@ -117,8 +118,8 @@ export class PlayCitComponent implements OnInit {
     let sec: number;
     this.intervalId = setInterval(() => {
       this.autoPause++;
-      if (this.i > 6 && this.typeCount > this.errorsCount) {
-        this.speed = Math.ceil((this.typeCount - (this.errorsCount * 4)) / (this.count / 10));
+      if (this.i > 4) {
+        this.speed = Math.ceil( (this.entered.split("").length * 60) / (this.count * 5));
         if (this.speed < 0) {
           this.speed = 0;
         } else {

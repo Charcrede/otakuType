@@ -11,7 +11,7 @@
                 <span *ngFor="let letter of word" class="lettre">{{letter}}</span>
                 <span class="lettre">&nbsp;&nbsp;</span>
             </div>
-            <input type="text" autofocus class="input" *ngIf="!recommencer || seeInput" (input)="typing()" id="input"
+            <input type="text" autofocus class="input" *ngIf="!recommencer && seeInput" (input)="typing()" id="input"
                 [(ngModel)]="entered" name="entered" autocomplete="off" autocapitalize="off" autocorrect="off">
                 <div class="shippaiSeiko" *ngIf="i >= selectedSynopsis.texte.split('').length">
                     <div class="d-flex justify-content-center align-items-center flex-column" *ngIf="speed >= 30">
