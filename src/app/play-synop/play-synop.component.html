@@ -28,9 +28,8 @@
                             <p class="shippai">shippai</p>
                         </div>
                     </div>
-                    <p class="rebeginP" *ngIf="recommencer"><button class="rebegin" (click)="restart()">Trop d'erreur, veuillez
-                        recommencer</button></p>
                 </div>
+                <p class="rebeginP" *ngIf="recommencer"><button class="rebegin" (click)="restart()">Trop d'erreur, veuillez recommencer</button></p>
                 <div class="shippaiSeiko pausePlay" [ngClass]="{'opacity0' : play, 'opacity5' : !play}">
                     <div [ngClass]="{'fa-circle-pause' : play, 'fa-circle-play':!play}" class="fa-solid"></div>
                     <p>Continuez à saisir pour reprendre</p>

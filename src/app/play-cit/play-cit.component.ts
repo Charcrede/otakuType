@@ -104,15 +104,20 @@ export class PlayCitComponent implements OnInit {
             this.spans[this.i].classList.remove("lose");
           }
         }
+        else if (e.data === '$') {
+          this.pause();
+          newTabSentence.pop();
+          this.entered = newTabSentence.join("");
+        }
         let sensLettersLength = this.selectedCitation.text.split("").length;
         this.precision = Math.floor(((sensLettersLength - this.errorsCount) / sensLettersLength) * 100);
         this.subscription.unsubscribe();
         if (newTabSentence.length >= this.selectedCitation.text.length) {
           clearInterval(this.intervalId);
           this.seeInput = false;
-      }
+        }
       })
-    }else{this.seeInput = false}
+    } else { this.seeInput = false }
   }
   timing() {
     let min: number;
@@ -120,7 +125,7 @@ export class PlayCitComponent implements OnInit {
     this.intervalId = setInterval(() => {
       this.autoPause++;
       if (this.i > 4) {
-        this.speed = Math.ceil( (this.entered.split("").length * 60) / (this.count * 5));
+        this.speed = Math.ceil((this.entered.split("").length * 60) / (this.count * 5));
         if (this.speed < 0) {
           this.speed = 0;
         } else {
@@ -155,7 +160,7 @@ export class PlayCitComponent implements OnInit {
     this.errorsCount = 0;
     this.seeInput = true;
     this.count = 0;
-    this.typeCount =0;
+    this.typeCount = 0;
     this.subscription.unsubscribe();
     this.service.verifyCit();
     this.selectedCitation = this.service.selectedCitation;

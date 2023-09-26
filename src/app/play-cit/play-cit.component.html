@@ -6,9 +6,7 @@
     <div class="relative">
         <div class="texte"
             style="background:linear-gradient(to bottom right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),url('{{service.selectedCitation.url}}')repeat fixed center;" #texte>
-            <!-- <img src="{{service.selectedCitation.url}}" alt=""> -->
             <div *ngFor=" let word of service.wordCitation" class="mot">
-                <!-- <div>{{word}}</div> -->
                 <span *ngFor="let letter of word" class="lettre">{{letter}}</span>
                 <span class="lettre">&nbsp;&nbsp;</span>
             </div>

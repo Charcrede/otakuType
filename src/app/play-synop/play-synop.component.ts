@@ -29,6 +29,7 @@ export class PlaySynopComponent implements OnInit, AfterViewInit {
     subscription!: any;
     speed: number = 0;
     errorsTable: number[] = [];
+    badEnter : string[] = [];
     time: string = "00:00";
     precision: number = 0;
     container!: HTMLElement;
@@ -72,7 +73,7 @@ export class PlaySynopComponent implements OnInit, AfterViewInit {
                 this.timing();
             }
             let newTabSentence = this.entered.split("");
-            if (e.inputType === 'insertText') {
+            if (e.inputType === 'insertText' && e.data !== "$") {
                 if (this.i <= this.sentence.length) {
                     if (this.sentence[this.i] === newTabSentence[this.i]) {
                         this.errorsTable = [];
@@ -82,6 +83,7 @@ export class PlaySynopComponent implements OnInit, AfterViewInit {
                         this.spans[this.i].classList.add("lose", "retry")
                         this.spans[this.i].classList.remove("success")
                         this.errorsCount++;
+                        this.badEnter.push
                         this.errorsTable.push(this.errorsCount);
                         if (this.errorsTable.length >= 15) {
                             this.recommencer = true;
@@ -112,23 +114,27 @@ export class PlaySynopComponent implements OnInit, AfterViewInit {
                     this.spans[this.i].classList.remove("lose");
                 }
             }
+            else if (e.data === '$') {
+                this.pause();
+                newTabSentence.pop();
+                this.entered = newTabSentence.join("");
+            }
             let sensLettersLength = this.selectedSynopsis.texte.split("").length;
             this.precision = Math.floor(((sensLettersLength - this.errorsCount) / sensLettersLength) * 100);
             this.subscription.unsubscribe();
             if (newTabSentence.length >= this.selectedSynopsis.texte.length) {
                 clearInterval(this.intervalId);
                 this.seeInput = false;
-                // this.recommencer = true;
             }
         })
         // }else{this.seeInput =false}
-    }
+}
     timing() {
         let min: number;
         let sec: number;
         this.intervalId = setInterval(() => {
-        if (this.i > 4) {
-            this.speed = Math.ceil( (this.entered.split("").length * 60) / (this.count * 5));
+        if (this.i > 4 && this.typeCount) {
+            this.speed = Math.ceil( ((this.entered.split("").length - this.errorsCount) * 60) / (this.count * 5));
             if (this.speed < 0) {
                 this.speed = 0;
             } else {
@@ -197,6 +203,10 @@ export class PlaySynopComponent implements OnInit, AfterViewInit {
         this.activeTimer = 0;
         setTimeout(() => {
             this.spans = document.querySelectorAll(".lettre");
+            let buttons = document.querySelectorAll(".suivant");
+            buttons?.forEach((el:any) => {
+                el.blur();
+            });
             this.textInput?.focus();
         }, 75);
     }
