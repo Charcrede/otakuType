@@ -368,3 +368,49 @@ figcaption button {
         transform: rotate(0deg);
     }
 }
+.parent-load {
+    display: flex;
+}
+
+img {
+    width: 100%;
+}
+
+.fils-load {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    animation: c1 1s infinite;
+}
+
+@keyframes c1 {
+    0% {
+        transform: translateY(0px);
+    }
+    20% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.d1 {
+    animation-delay: 0.4s;
+    background:url(assets/images-load/png1.png) no-repeat fixed center /cover;
+}
+
+.d3 {
+    animation-delay: 0.2s;
+    background: url(assets/images-load/png3.png) no-repeat fixed center /cover;
+}
+
+.d4 {
+    
+    background: url(assets/images-load/png4.png) no-repeat fixed center /cover;
+}
+.loadAndGame{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

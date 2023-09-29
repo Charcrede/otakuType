@@ -31,6 +31,7 @@ export class PlaySynopComponent implements OnInit, AfterViewInit {
     errorsTable: number[] = [];
     badEnter : string[] = [];
     time: string = "00:00";
+    loading = true;
     precision: number = 0;
     container!: HTMLElement;
     typeCount = 0;
@@ -43,11 +44,12 @@ export class PlaySynopComponent implements OnInit, AfterViewInit {
         this.service.verifySynop();
         this.selectedSynopsis = this.service.selectedSynopsis;
         this.recommencer = false;
-        setTimeout(() => {
-            this.spans = document.querySelectorAll(".lettre");
-            this.typing();
-            this.textInput?.focus();
-        }, 100);
+            setTimeout(() => {
+                this.spans = document.querySelectorAll(".lettre");
+                this.textInput?.focus();
+                this.typing();
+        });
+        
     }
     dir() {
         console.dir(this.textInput)
@@ -201,14 +203,16 @@ export class PlaySynopComponent implements OnInit, AfterViewInit {
         this.recommencer = false;
         this.play = true;
         this.activeTimer = 0;
-        setTimeout(() => {
-            this.spans = document.querySelectorAll(".lettre");
-            let buttons = document.querySelectorAll(".suivant");
-            buttons?.forEach((el:any) => {
-                el.blur();
-            });
-            this.textInput?.focus();
-        }, 75);
+        setTimeout(()=>{
+            this.loading = false;
+        }, 500)
+        if (!this.loading) {
+            setTimeout(() => {
+                this.spans = document.querySelectorAll(".lettre");
+                this.textInput?.focus();
+                this.typing();
+            }, 200);
+        }
     }
     pause() {
         if (this.i < this.selectedSynopsis.texte.split("").length - 1) {
